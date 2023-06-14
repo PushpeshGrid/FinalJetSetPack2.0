@@ -1,0 +1,116 @@
+.jetsetpackgpt{
+    text-align: center;
+    display: flex;
+    background-color: #282c54;
+    color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 280px;
+
+
+}
+
+.jetsetpackgpt_sidemenu{
+    width: 250px;
+    
+    background-color: #282c54;
+    padding: 10px;
+
+}
+
+.jetsetpack_chatbox{
+    flex: 1;
+    
+    background-color: #21233d;
+    width: 978px;
+    position: relative;
+
+}
+
+.jetsetpackgpt_sidemenu-button{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    text-align: left;
+}
+.jetsetpackgpt_sidemenu-button span{
+    padding-left: 5px;
+    padding-right: 10px;
+}
+.jetsetpackgpt_sidemenu-button:hover{
+    background-color: rgba(255,255,255,0.1);
+    transition: 0.2s all ease-in-out;
+}
+
+.jetsetpack_chatbox-textarea{
+    padding: 12px 30px 12px 4px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.jetsetpack_chatbox-text-input{
+    background-color: #40414f;
+    border-radius: 4px;
+    border: none;
+    width: 88%;
+    outline: none;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+
+    
+
+}
+
+
+.jetsetpack_chatbox-chatlog{
+    padding: 4px;
+    text-align: left;
+
+}
+
+.jetsetpack_chatbox-chatlog-message.chatgpt{
+    /* padding: 12px;
+    padding-left: 20px;
+    padding-right: 20px; */
+    background-color: rgba(255,255,255,0.1);
+
+}
+
+.chatlog-message-box{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 12px;
+    display: flex;
+    max-width: 440px;
+
+
+}
+
+.chat-avatar{
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+}
+
+.chat-avatar.chatresponse{
+    background: #4fb591;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+
+}
+
+.chat-message{
+    padding-left: 40px;
+    padding-right: 40px;
+
+}

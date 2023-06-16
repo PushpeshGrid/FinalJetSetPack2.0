@@ -32,6 +32,8 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 
+import bgvideo from '../videos/signupvid.mp4';
+
 
 
 // axios
@@ -41,7 +43,46 @@ import { myAxios } from "helper/helper";
 import axios from "axios";
 
 
+import Aftersign from '../components/Aftersign/index'
+
+
+// signupandcontinuepage
+
+
+// import * as React from 'react';
+// import Button from '@mui/material/Button';
+// import TextField from '@mui/material/TextField';
+// import Dialog from '@mui/material/Dialog';
+// import DialogActions from '@mui/material/DialogActions';
+// import DialogContent from '@mui/material/DialogContent';
+// import DialogContentText from '@mui/material/DialogContentText';
+// import DialogTitle from '@mui/material/DialogTitle';
+
+import NextAftersign from '../components/Aftersign/index'
+
+
+
+
+
 function Basic() {
+
+
+
+  // signupcontinuepage
+
+  // const [open, setOpen] = React.useState(false);
+
+
+
+  // const handleCancle = () => {
+  //   setOpen(false);
+  // };
+  // const handleContinue = () =>{
+  //   navigate("/Dashboard/")
+  //   console.log('hi')
+  // }
+
+
 
   const [username,setUsername] = useState('');
   const [password,setPassword] = useState('');
@@ -51,6 +92,8 @@ function Basic() {
 
 // login handle
 const loginHandle= (e)=>{
+  navigate("/authentication/welcome");
+  // setOpen(true);
 
 
   e.preventDefault();
@@ -62,7 +105,7 @@ const loginHandle= (e)=>{
   }
 
   const token = myAxios.post("/auth/login/", userData).then((response) => response.data).then((response) => {
-    navigate("/Dashboard/");;
+    navigate("/authentication/welcome");
 }).catch((tokenerror) => {
     console.log(tokenerror);
 });
@@ -78,7 +121,8 @@ console.log(token);
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
-    <BasicLayout image={bgImage}>
+    <BasicLayout  video = {bgvideo}>
+      
       <Card>
         <MDBox
           variant="gradient"
@@ -140,7 +184,45 @@ console.log(token);
             
             <MDBox mt={4} mb={1}>
 
-            <button className="magicButton" onClick={loginHandle}>Sign In</button>
+
+
+
+            {/* <div> */}
+            <button className="magicButton" onClick={loginHandle}>Sign In and Continue</button>
+            {/* <Dialog open={open} onClose={handleContinue}>
+            <DialogTitle>Welcome</DialogTitle>
+            <DialogContent>
+            <DialogContentText>
+            Give Some Info for Getting tools, please enter your IP add address and OS here.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="IP Address"
+            type="IPAdd"
+            fullWidth
+            variant="standard"
+          />
+           <TextField
+            autoFocus
+            margin="dense"
+            id="os"
+            label="OS(operating system)"
+            type="OS"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCancle}>Cancel</Button>
+          <Button onClick={handleContinue}>Continue</Button>
+        </DialogActions>
+      </Dialog>
+    </div> */}
+
+
+
               {/* <MDButton variant="gradient" color="info" fullWidth onclick={loginHandle}>
                 sign in
               </MDButton> */}

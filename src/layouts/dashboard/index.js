@@ -20,7 +20,7 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
-import MyForm from "./formforuser/ipandosform";
+// import MyForm from "./formforuser/ipandosform";
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
@@ -33,7 +33,7 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MyForm/>
+      {/* <MyForm/> */}
       <MDBox py={3}>
         <Grid container spacing={3}>
 

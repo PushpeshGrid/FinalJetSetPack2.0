@@ -9,7 +9,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
-import MDBox from "components/MDBox";
+import MDBox from "./components/MDBox";
 
 // Material Dashboard 2 React example components
 import Sidenav from "examples/Sidenav";
@@ -47,6 +47,9 @@ import signin from './layouts/authentication/sign-in/index.js'
 
 
 
+
+// welcomepage
+import Welcomepage from './layouts/authentication/components/Aftersign/index.js'
 
 
 
@@ -156,7 +159,7 @@ export default function App() {
   );
 
   return direction === "rtl" ? (
-    <CacheProvider value={rtlCache}>
+    // <CacheProvider value={rtlCache}>
       <ThemeProvider theme={darkMode ? themeDarkRTL : themeRTL}>
         <CssBaseline />
         {layout === "dashboard" && (
@@ -183,7 +186,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       </ThemeProvider>
-    </CacheProvider>
+    // </CacheProvider>
   ) : (
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
@@ -207,13 +210,18 @@ export default function App() {
       
 
 
-      {getRoutes(routes)}
+      
         {/* <Route exact path="/" component={signin} /> */}
 
        
         <Route path = '/' element = {<Navigate to ="/authentication/sign-in"/>}/>
+       
         <Route path="*" element={<Navigate to="/dashboard" />} />
+
+        {getRoutes(routes)}
       </Routes>
+          
+     
     </ThemeProvider>
   );
 }

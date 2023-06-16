@@ -21,6 +21,8 @@ import CoverLayout from "layouts/authentication/components/CoverLayout";
 // Images
 import bgImage from "assets/images/bg-sign-up-cover.jpeg";
 
+import bgvideo from '../videos/singup.mp4'
+
 
 import axios from "axios";
 
@@ -32,7 +34,45 @@ import { useState } from "react";
 import { myAxios } from "helper/helper";
 
 
+
+
+
+// signupandcontinuepage
+
+
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
+
+
 function Cover() {
+
+
+
+
+
+
+
+  // signupcontinuepage
+
+  const [open, setOpen] = React.useState(false);
+
+
+
+  const handleCancle = () => {
+    setOpen(false);
+  };
+  const handleContinue = () =>{
+    
+    console.log('hi')
+  }
 
   const navigate = useNavigate()
 
@@ -46,14 +86,11 @@ function Cover() {
 
 
 const signupHandle = (e)=>{
+  
+  // setOpen(true);
 
   e.preventDefault();
-
- 
-
   const userData = {
-
-
     username: username,
     email: email,
     password: password
@@ -61,8 +98,9 @@ const signupHandle = (e)=>{
   
     
     const token = myAxios.post("/auth/signup/", userData).then((response) => response.data).then((response) => {
-      navigate("/Dashboard/");
+      navigate("/authentication/welcome");
       console.log(response)
+      
   }).catch((tokenerror) => {
       console.log(tokenerror);
   });
@@ -76,7 +114,7 @@ const signupHandle = (e)=>{
 
 
   return (
-    <CoverLayout image={bgImage}>
+    <CoverLayout image={bgImage} video = {bgvideo}>
       <Card>
         <MDBox
           variant="gradient"
@@ -129,7 +167,45 @@ const signupHandle = (e)=>{
               </MDTypography>
             </MDBox>
 
-            <button className="magicButton" onClick={signupHandle}>Sign Up</button>
+
+
+          {/* <div> */}
+            <button className="magicButton" onClick={signupHandle}>Sign Up and Continue</button>
+{/* 
+            <Dialog open={open} onClose={handleContinue}>
+            <DialogTitle>Welcome</DialogTitle>
+            <DialogContent>
+            <DialogContentText>
+            Give Some Info for Getting tools, please enter your IP add address and OS here.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="IP Address"
+            type="IPAdd"
+            fullWidth
+            variant="standard"
+          />
+           <TextField
+            autoFocus
+            margin="dense"
+            id="os"
+            label="OS(operating system)"
+            type="OS"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCancle}>Cancel</Button>
+          <Button onClick={handleContinue}>Continue</Button>
+        </DialogActions>
+      </Dialog>
+    </div> */}
+
+
+
             <MDBox mt={4} mb={1} >
 
             

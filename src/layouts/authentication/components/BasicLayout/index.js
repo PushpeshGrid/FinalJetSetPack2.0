@@ -15,7 +15,7 @@ import PageLayout from "examples/LayoutContainers/PageLayout";
 // Authentication pages components
 import Footer from "layouts/authentication/components/Footer";
 
-function BasicLayout({ image, children }) {
+function BasicLayout({ image, children,video }) {
   return (
     <PageLayout>
       {/* <DefaultNavbar
@@ -31,7 +31,7 @@ function BasicLayout({ image, children }) {
         width="100%"
         minHeight="100vh"
         sx={{
-          backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
+          background: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
             image &&
             `${linearGradient(
               rgba(gradients.dark.main, 0.6),
@@ -40,8 +40,33 @@ function BasicLayout({ image, children }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+
         }}
+      
       />
+
+
+<video
+    autoPlay
+    muted
+    loop
+    style={{
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      zIndex:'-1',
+    }}
+  >
+    <source src={video} type="video/mp4" />
+  </video>
+     
+      
+
+
+
+
+
       <MDBox px={1} width="100%" height="100vh" mx="auto">
         <Grid container spacing={1} justifyContent="center" alignItems="center" height="100%">
           <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>

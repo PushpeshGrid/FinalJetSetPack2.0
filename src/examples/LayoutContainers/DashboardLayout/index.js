@@ -18,9 +18,16 @@ function DashboardLayout({ children }) {
   const { miniSidenav } = controller;
   const { pathname } = useLocation();
 
+
+
+
+// setting leftsidenav
   useEffect(() => {
     setLayout(dispatch, "dashboard");
   }, [pathname]);
+
+
+
 
   return (
     <MDBox

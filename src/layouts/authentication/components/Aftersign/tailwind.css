@@ -170,3 +170,46 @@
   left:90%;
   animation: mymove 9s linear infinite;
 }
+
+.bubble span:nth-child(15){
+  top:110%;
+  left:40%;
+  animation: mymove 9s linear infinite;
+}
+
+.bubble span:nth-child(16){
+  top:140%;
+  left:70%;
+  animation: mymove 9s linear infinite;
+}
+
+.bubble span:nth-child(17){
+  top:160%;
+  left:10%;
+  animation: mymove 9s linear infinite;
+}
+.bubble span:nth-child(18){
+  top:190%;
+  left:10%;
+  animation: mymove 9s linear infinite;
+}
+.bubble span:nth-child(19){
+  top:190%;
+  left:30%;
+  animation: mymove 9s linear infinite;
+}
+.bubble span:nth-child(18){
+  top:180%;
+  left:90%;
+  animation: mymove 9s linear infinite;
+}
+.bubble span:nth-child(18){
+  top:170%;
+  left:70%;
+  animation: mymove 9s linear infinite;
+}
+.bubble span:nth-child(18){
+  top:200%;
+  left:50%;
+  animation: mymove 9s linear infinite;
+}

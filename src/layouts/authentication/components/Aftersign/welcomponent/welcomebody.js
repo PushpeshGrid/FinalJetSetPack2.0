@@ -69,19 +69,105 @@ const Welcome = () => {
 
 
     const boxRef = useRef(null);
-  const [copied, setCopied] = useState(false);
+  const [copied1, setCopied1] = useState(false);
+  const [copied2, setCopied2] = useState(false);
+  const [copied3, setCopied3] = useState(false);
+  const [copied4, setCopied4] = useState(false);
+  const [copied5, setCopied5] = useState(false);
 
-  const handleCopyToClipboard = () => {
-    const box = boxRef.current;
+
+
+
+
+
+
+
+
+
+
+  const handleCopyToClipboard1 = () => {
+    const text = document.getElementById('command1');
     const range = document.createRange();
-    range.selectNodeContents(box);
+    range.selectNodeContents(text);
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
     document.execCommand('copy');
     selection.removeAllRanges();
-    setCopied(true);
+    setCopied1(true);
+    // const box = boxRef.current;
+    // const range = document.createRange();
+    // range.selectNodeContents(box);
+    // const selection = window.getSelection();
+    // selection.removeAllRanges();
+    // selection.addRange(range);
+    // document.execCommand('copy');
+    // selection.removeAllRanges();
+    // setCopied(true);
   };
+
+  const handleCopyToClipboard2 = () => {
+
+    const text = document.getElementById('command2');
+    const range = document.createRange();
+    range.selectNodeContents(text);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    setCopied2(true);
+  };
+  const handleCopyToClipboard3 = () => {
+  
+    const text = document.getElementById('command3');
+    const range = document.createRange();
+    range.selectNodeContents(text);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    setCopied3(true);
+  };
+  const handleCopyToClipboard4 = () => {
+ 
+    const text = document.getElementById('command4');
+    const range = document.createRange();
+    range.selectNodeContents(text);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    setCopied4(true);
+  };
+  const handleCopyToClipboard5 = () => {
+   
+    const text = document.getElementById('command5');
+    const range = document.createRange();
+    range.selectNodeContents(text);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    setCopied5(true);
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -91,18 +177,23 @@ const Welcome = () => {
 
 // for learnmore dialog
 
-const [open, setOpen] = React.useState(false);
+const [openLearnmore, setOpenLearnmore] = React.useState(false);
+const [openInfo, setOpenInfo] = React.useState(false);
 
-const handleClickOpen = () => {
-  setOpen(true);
+const handleClickLearn = () => {
+  setOpenLearnmore(true);
 };
-const handleClose = () => {
-  setOpen(false);
+const handleCloseLearn = () => {
+  setOpenLearnmore(false);
 };
 
 
-const handleClickUsewebsite = () => {
-    setOpen(true);
+const handleClickInfo = () => {
+    setOpenInfo(true);
+  };
+
+  const handleCloseInfo = () => {
+    setOpenInfo(false);
   };
 
 
@@ -135,13 +226,13 @@ const handleClickUsewebsite = () => {
 
 
         <div>
-                <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'  onClick={handleClickOpen}>Learn More</button>
+                <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'  onClick={handleClickLearn}>Learn More</button>
                 <BootstrapDialog
-                onClose={handleClose}
+                onClose={handleCloseLearn}
                 aria-labelledby="customized-dialog-title"
-                open={open}
+                open={openLearnmore}
                 >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseLearn}>
                 JetSetPack2.0
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
@@ -153,7 +244,7 @@ const handleClickUsewebsite = () => {
                 </Typography>
                 </DialogContent>
                 <DialogActions>
-                <Button autoFocus onClick={handleClose}>
+                <Button autoFocus onClick={handleCloseLearn}>
                     Cancel
                 </Button>
                 </DialogActions>
@@ -165,18 +256,18 @@ const handleClickUsewebsite = () => {
 
 
       </div>
-      <div className='flex justify-flex start'>
-      <h2 className = 'mx-5'>Here's a quick tutorial on how to use our site for New Users: </h2>
+      <div className='flex justify-flex start text-center flex-col'>
+      <h2 className = ' md:text-2xl mx-auto text-center flex flex-col justify-center'>Here's a quick tutorial on how to use our site for New Users </h2>
 
       <div>
-        <button className='bg-[#0082df] w-[100px] rounded-md font-medium mx-3  text-white' onClick={handleClickUsewebsite}>Info</button>
+        <button className='bg-[#0082df] w-[100px] rounded-md font-medium mx-3 text-white mt-1' onClick={handleClickInfo}>Info</button>
         <BootstrapDialog
-                onClose={handleClose}
+                onClose={handleCloseInfo}
                 aria-labelledby="customized-dialog-title"
-                open={open}
+                open={openInfo}
                 >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                JetSetPack2.0
+                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseInfo}>
+                    JetSetPack2.0
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                 <Typography gutterBottom>
@@ -184,24 +275,51 @@ const handleClickUsewebsite = () => {
                 </Typography>
 
                 <Typography gutterBottom
-                ref={boxRef}
-                
-                
+
+                    id = 'command1'
+                    ref={boxRef}
+                    className="flex justify-start border border-gray-300 rounded-md p-1 min-h-200 bg-gray-100 font-sans leading-6 my-4 whitespace-pre-wrap"
+                    style = {{fontSize: '13px'}}
                 >
                     whoami
                 </Typography>
-                <button className = 'flex justify-start my-2 text-[#5056fd]'onClick={handleCopyToClipboard}>
+                <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard1}>
                     <FaCopy /> Copy text
                 </button>
-                {copied && <p className='text-[#5056fd]'>Text copied to clipboard!</p>}
+                {copied1 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
 
 
 
                 <Typography gutterBottom>
-                    2. Copy the script provided below and paste it into the created file.
+                    2. Copy the user and keep it
+                </Typography>
+
+                <Typography gutterBottom>
+                    3. Switch to root user
                 </Typography>
 
                 <Typography gutterBottom
+                    id = 'command2'
+                    ref={boxRef}
+                    className="flex justify-start border border-gray-300 rounded-md p-1 min-h-200 bg-gray-100 font-sans leading-6 my-4 whitespace-pre-wrap"
+                    style = {{fontSize: '13px'}}
+                >
+                    sudo su - 
+                </Typography>
+                <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard2}>
+                    <FaCopy /> Copy text
+                </button>
+                {copied2 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
+
+
+
+                <Typography gutterBottom>
+                    4. Copying ansible keys to authorized keys
+                </Typography>
+
+
+                <Typography gutterBottom
+                    id = 'command3'
                     ref={boxRef}
                     style={{
                         border: '1px solid #ccc',
@@ -217,51 +335,74 @@ const handleClickUsewebsite = () => {
                         }}
                 >
                 
-                #!/bin/bash
-                key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCsqOwEaw6pvYekU
-                uv9lBHUBzHH26pzvRkLoC7z6+WlGR4FaN95KcXBlHWHjjSi8y0ay1o0m+
-                CL7tGIZhfRzAOhVFcqw
-                SmDurB/MaX+cfOJn18TMyUBWG7CPP6NyuLlBYuC9z5dz/g6e/08qT4dMhY+94y1eByT
-                SNmYUFbXy+2gXQXA7lxg414cWGLd0UhDPwS11DUdUzvxe7wTrzYSURcgG29k+PBHnySn
-                /zpjniKs1SnwZdeXYFNYYw+aLs5aRZXs0yw+bzF04fE4bfIW/TAGb7ltcuS0XtNIAjCd
-                SVHH3LkIvDxQTd7MjESTCQlO3b0ESizRgjaf5tJNyH+AvgN+fSL47TrcDFKT3HoBl27Fr
-                IHJm+z5SfqoSzz+GrCOtCKfiv8SFx/EUT+jyaoYD+5TcnkbYOLaYkHvBoAbhgET/IxCdv
-                8uwuok73LIWyJqy8v4oV1F8EBtIHX1vjZbP+V7j3tJ9T3GXqCR8nLhpiYfZCtkO9knFtnaca
-                fgA/XHpMM= rsah@rsahs-MacBook-Pro.local"
-                tmp_file=$(mktemp)
-                echo "$key" {'>'} "$tmp_file"
-                cat "$tmp_file" {'>>'} ~/.ssh/authorized_keys
-                rm "$tmp_file"
-
-             
+                echo "ssh-rsa 
+                AAAAB3NzaC1yc2EAAAADAQABAAABgQCsqOwEaw6pvYekUuv9lBHUBzHH26pzvRk
+                LoC7z6+WlGR4FaN95KcXBlHWHjjSi8y0ay1o0m+CL7tGIZhfRzAOhVFcqwSmDu
+                rB/MaX+cfOJn18TMyUBWG7CPP6NyuLlBYuC9z5dz/g6e/08qT4dMhY+94y1eBy
+                TSNmYUFbXy+2gXQXA7lxg414cWGLd0UhDPwS11DUdUzvxe7wTrzYSURcgG29k+
+                PBHnySn/zpjniKs1SnwZdeXYFNYYw+aLs5aRZXs0yw+bzF04fE4bfIW/TAGb7
+                ltcuS0XtNIAjCdSVHH3LkIvDxQTd7MjESTCQlO3b0ESizRgjaf5tJNyH+AvgN+
+                fSL47TrcDFKT3HoBl27FrIHJm+z5SfqoSzz+GrCOtCKfiv8SFx/EUT+jyaoYD
+                +5TcnkbYOLaYkHvBoAbhgET/IxCdv8uwuok73LIWyJqy8v4oV1F8EBtIHX1v
+                jZbP+V7j3tJ9T3GXqCR8nLhpiYfZCtkO9knFtnacafgA/XHpMM= rsah@rsahs-MacBook-Pro.local" {'>>'} ~/.ssh/authorized_keys
                 </Typography>
-                <button className = 'flex justify-start my-2 text-[#5056fd]'onClick={handleCopyToClipboard}>
+                <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard3}>
                     <FaCopy /> Copy text
                 </button>
-                {copied && <p className='text-[#5056fd]'>Text copied to clipboard!</p>}
+                {copied3 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
 
                 <Typography gutterBottom>
-                    3. Navigate to the file path.
-                </Typography>
-                <Typography gutterBottom>
-                    4. Execute the script using the provided command.
+                    5. Adding copied user to sudoer file. Replace $user with your username
                 </Typography>
 
                 <Typography gutterBottom
-                
+                    id = 'command4'
+                    ref={boxRef}
+                    className="flex justify-start border border-gray-300 rounded-md p-1 min-h-200 bg-gray-100 font-sans leading-6 my-4 whitespace-pre-wrap"
+                    style = {{fontSize: '13px'}}
+
                 >
-                    bash ssh.sh
+                    echo "$user ALL= (ALL) NOPASSWD:ALL" {">>"} /etc/sudeors 
                 </Typography>
 
+                <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard4}>
+                    <FaCopy /> Copy text
+                </button>
+                {copied4 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
+
+
+
                 <Typography gutterBottom>
-                    5. You are now ready to use our website. 
+                    6. Please ensure remote login is on
                 </Typography>
+            
+
+                <Typography gutterBottom>
+                    7. restart your system
+                </Typography>
+
+                <Typography gutterBottom
+                id = 'command5'
+                 ref={boxRef}
+                 className="flex justify-start border border-gray-300 rounded-md p-1 min-h-200 bg-gray-100 font-sans leading-6 my-4 whitespace-pre-wrap"
+                 style = {{fontSize: '13px'}}  
+                >
+                   sudo reboot
+                </Typography>
+                <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard5}>
+                    <FaCopy /> Copy text
+                </button>
+                {copied5 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
+
+
                 
+
+
 
 
                 </DialogContent>
                 <DialogActions>
-                <Button autoFocus onClick={handleClose}>
+                <Button autoFocus onClick={handleCloseInfo}>
                     AGREE
                 </Button>
                 </DialogActions>

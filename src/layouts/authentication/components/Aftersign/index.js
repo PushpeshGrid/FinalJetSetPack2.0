@@ -37,6 +37,17 @@ const App = () => {
         <span className='bubble-animation'></span>
         <span className='bubble-animation'></span>
         <span className='bubble-animation'></span>
+
+        <span className='bubble-animation'></span>
+        <span className='bubble-animation'></span>
+        <span className='bubble-animation'></span>
+        <span className='bubble-animation'></span>
+
+
+        <span className='bubble-animation'></span>
+        <span className='bubble-animation'></span>
+        <span className='bubble-animation'></span>
+        <span className='bubble-animation'></span>
       </div>
       <Welcome />
       <Aboutjet />

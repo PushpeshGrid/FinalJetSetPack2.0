@@ -7,25 +7,41 @@ import JetsetPack from '../../../../../assets/images/Jetsetpack2.svg'
 // fornavigation
 import { useNavigate } from 'react-router-dom';
 
+import axios from 'axios';
 
 
 
 const Aboutjetset = () => {
 
-    
-   
-
-
-
+    const navigate = useNavigate()
     // for inputfield
     const [ipAddress, setIpAddress] = useState('');
     const [operatingSystem, setOperatingSystem] = useState('');
 
-const navigate = useNavigate()
+
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     navigate('/dashboard/')
+    e.preventDefault();
+    console.log(ipAddress,operatingSystem)
+
+    const userData = {
+        ip_address:ipAddress,
+        os:operatingSystem
+    }
+
+    axios
+    .post('http://127.0.0.1:8000/user_info/', userData)
+    .then((response) => {
+      let data = response.data
+      console.log(data)
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+    
+    // navigate('/dashboard/')
     // Add your submit logic here
   };
 
@@ -59,6 +75,7 @@ const navigate = useNavigate()
               Operating System:
             </label>
             <select
+            value={operatingSystem}
               name="os"
               id="operatingSystem"
               onChange={(e) => setOperatingSystem(e.target.value)}

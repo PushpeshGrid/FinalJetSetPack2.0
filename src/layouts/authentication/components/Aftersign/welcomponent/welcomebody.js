@@ -82,7 +82,7 @@ const handleClose = () => {
 
   return (
     <div className='text-[#6bb5ff]'>
-      <div className='max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center'>
+      <div className='max-w-[800px] mt-[-40px] w-full h-screen mx-auto text-center flex flex-col justify-center'>
         <p className='text-[#131a18] font-bold p-2'>
           Welcome to Our website
         </p>
@@ -107,35 +107,37 @@ const handleClose = () => {
 
 
         <div>
-        <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'  onClick={handleClickOpen}>Learn More</button>
-        <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          JetSetPack2.0
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-          A developer should not have to go through the hassle of searching for an existing virtual machine or, worse yet, manually installing the entire environment from scratch.
-          </Typography>
-          <Typography gutterBottom>
-          Provide basic functionality to spin up development environments in the cloud with required tools installed and configured based on each company's needs. Start with a couple core options like local dev machine setup, staging environment, production, etc. Expand and customize over time.
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Cancle
-          </Button>
-        </DialogActions>
-      </BootstrapDialog>
-    </div>
+                <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'  onClick={handleClickOpen}>Learn More</button>
+                <BootstrapDialog
+                onClose={handleClose}
+                aria-labelledby="customized-dialog-title"
+                open={open}
+                >
+                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+                JetSetPack2.0
+                </BootstrapDialogTitle>
+                <DialogContent dividers>
+                <Typography gutterBottom>
+                A developer should not have to go through the hassle of searching for an existing virtual machine or, worse yet, manually installing the entire environment from scratch.
+                </Typography>
+                <Typography gutterBottom>
+                Provide basic functionality to spin up development environments in the cloud with required tools installed and configured based on each company's needs. Start with a couple core options like local dev machine setup, staging environment, production, etc. Expand and customize over time.
+                </Typography>
+                </DialogContent>
+                <DialogActions>
+                <Button autoFocus onClick={handleClose}>
+                    Cancel
+                </Button>
+                </DialogActions>
+            </BootstrapDialog>
+        </div>
 
+            
 
 
 
       </div>
+      <h2>Hi Click Here </h2>
     </div>
   );
 };

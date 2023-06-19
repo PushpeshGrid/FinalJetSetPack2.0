@@ -1,5 +1,13 @@
 import { useState, useEffect, useMemo } from "react";
 
+
+
+// for token so token use ocerallcomponent
+import { TokenProvider } from './context/TokenContext';
+
+
+
+
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
@@ -160,6 +168,7 @@ export default function App() {
 
   return direction === "rtl" ? (
     // <CacheProvider value={rtlCache}>
+    <TokenProvider>
       <ThemeProvider theme={darkMode ? themeDarkRTL : themeRTL}>
         <CssBaseline />
         {layout === "dashboard" && (
@@ -186,8 +195,12 @@ export default function App() {
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       </ThemeProvider>
+      </TokenProvider>
     // </CacheProvider>
   ) : (
+
+
+    <TokenProvider>
     <ThemeProvider theme={darkMode ? themeDark : theme}>
       <CssBaseline />
       {layout === "dashboard" && (
@@ -223,5 +236,7 @@ export default function App() {
           
      
     </ThemeProvider>
+
+    </TokenProvider>
   );
 }

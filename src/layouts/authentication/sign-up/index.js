@@ -29,9 +29,14 @@ import axios from "axios";
 import { useState } from "react";
 
 
+// fortokenoverallproject
+import { useContext } from 'react';
+import { TokenContext } from '../../../context/TokenContext';
 
 
-import { myAxios } from "helper/helper";
+
+
+
 
 
 
@@ -57,22 +62,18 @@ function Cover() {
 
 
 
+  // tokenhandling
+  const { setToken } = useContext(TokenContext);
+
+
+
+
 
 
 
   // signupcontinuepage
 
-  const [open, setOpen] = React.useState(false);
-
-
-
-  const handleCancle = () => {
-    setOpen(false);
-  };
-  const handleContinue = () =>{
-    
-    console.log('hi')
-  }
+ 
 
   const navigate = useNavigate()
 
@@ -86,7 +87,7 @@ function Cover() {
 
 
 const signupHandle = (e)=>{
-  
+  // navigate("/authentication/welcome");
   // setOpen(true);
 
   e.preventDefault();
@@ -96,15 +97,33 @@ const signupHandle = (e)=>{
     password: password
   }
   
+
+
+  axios
+      .post('http://127.0.0.1:8000/auth/signup/', userData)
+      .then((response) => {
+        navigate("/authentication/welcome");
+        console.log(response);
+        let data = response.data
+        console.log(data)
+        let token = data.token;
+        setToken(token);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     
-    const token = myAxios.post("/auth/signup/", userData).then((response) => response.data).then((response) => {
-      navigate("/authentication/welcome");
-      console.log(response)
+ 
+
+
+  //   const token = myAxios.post("/auth/signup/", userData).then((response) => response.data).then((response) => {
       
-  }).catch((tokenerror) => {
-      console.log(tokenerror);
-  });
-  console.log(token);
+  //     console.log(response)
+      
+  // }).catch((tokenerror) => {
+  //     console.log(tokenerror);
+  // });
+  // console.log(token);
 
  
   

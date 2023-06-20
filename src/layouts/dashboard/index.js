@@ -20,7 +20,8 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
-// import MyForm from "./formforuser/ipandosform";
+// importclient role
+import AppSelector from "./components/role/clientrole";
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
@@ -99,7 +100,7 @@ function Dashboard() {
           </Grid>
         </Grid>
 
-        <h3>Role</h3>
+        <AppSelector />
 
 
 

@@ -64,7 +64,33 @@ import NextAftersign from '../components/Aftersign/index'
 
 
 
+
+// fortokenoverallproject
+import { useContext } from 'react';
+import { TokenContext } from '../../../context/TokenContext';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function Basic() {
+
+   // tokenhandling
+   const { setNewToken } = useContext(TokenContext);
+
+
+
+  
 
 
 
@@ -92,7 +118,7 @@ function Basic() {
 
 // login handle
 const loginHandle= (e)=>{
-  navigate("/authentication/welcome");
+ 
   // setOpen(true);
 
 
@@ -100,16 +126,38 @@ const loginHandle= (e)=>{
 
 
   const userData = {
-    username:username,
-    password:password
+    username,
+    password
   }
 
-  const token = myAxios.post("/auth/login/", userData).then((response) => response.data).then((response) => {
-    navigate("/authentication/welcome");
-}).catch((tokenerror) => {
-    console.log(tokenerror);
+//   const token = myAxios.post("/auth/login/", userData).then((response) => response.data).then((response) => {
+//     navigate("/authentication/welcome");
+
+//     let data = token
+// }).catch((tokenerror) => {
+//     console.log(tokenerror);
+// });
+// console.log(token);
+
+axios
+.post('http://127.0.0.1:8000/auth/login/', userData)
+.then((response) => {
+  
+  
+  let data = response.data
+  console.log({data})
+  let token = data.token;
+  console.log({token})
+  setNewToken(token);
+  navigate("/authentication/welcome");
+
+  // localStorage.setItem('token',token)
+
+
+})
+.catch((error) => {
+  console.error(error);
 });
-console.log(token);
 
 }
 

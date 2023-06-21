@@ -11,7 +11,23 @@ import axios from 'axios';
 
 
 
+// for token 
+import { useContext } from 'react';
+
+import { TokenContext } from '../../../../../context/TokenContext';
+
+
+
+
+
+
+
 const Aboutjetset = () => {
+
+
+     // tokenhandling
+ const {token} = useContext(TokenContext);
+ console.log({token});
 
     const navigate = useNavigate()
     // for inputfield
@@ -23,15 +39,25 @@ const Aboutjetset = () => {
   const handleSubmit = (e) => {
     navigate('/dashboard/')
     e.preventDefault();
-    console.log(ipAddress,operatingSystem)
+    // console.log(ipAddress,operatingSystem)
 
     const userData = {
         ip_address:ipAddress,
         os:operatingSystem
+
     }
 
+    
+    
+
+    console.log(token);
+
     axios
-    .post('http://127.0.0.1:8000/user_info/', userData)
+    .post('http://127.0.0.1:8000/user_info/', userData,{
+        headers:{
+            'Authorization': `Bearer ${token}`
+        }
+    })
     .then((response) => {
       let data = response.data
       console.log(data)
@@ -81,8 +107,9 @@ const Aboutjetset = () => {
               onChange={(e) => setOperatingSystem(e.target.value)}
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="mac">mac</option>
+              
               <option value="window">windows</option>
+              <option value="MacOS">MacOS</option>
               <option value="linux">linux</option>
               <option value="windowxp">windowxp</option>
             </select>

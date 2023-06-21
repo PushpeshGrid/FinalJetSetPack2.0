@@ -32,21 +32,58 @@ const AppSelector = () => {
 
 //   downloadinghandling
 
-const handleDownload = () =>{
-    console.log('hi')
-    axios
-      .post('http://127.0.0.1:8000/get_apps/')
-      .then((response) => {
-        let data=response.data
-        console.log(response , data);
+// const handleDownload = () =>{
+//     console.log('hi')
+//     axios
+//       .post('http://127.0.0.1:8000/set_environment/')
+//       .then((response) => {
+//         let data=response.data
+//         console.log(response , data);
         
        
-      })
-      .catch((error) => {
-        console.error(error);
+//       })
+//       .catch((error) => {
+//         console.error(error);
         
+//       });
+// }
+
+
+const handleDownload = async () =>{
+
+    try {
+        // Make a POST request to retrieve the array of strings containing download scripts
+        const response = await axios.post('http://127.0.0.1:8000/set_environment/', {
+          token: 'your_token_here' // Replace with your actual token
+        });
+        console.log(response)
+
+        
+        const downloadScripts = response.data; // Assuming the response contains the array of strings
+
+        // Dynamically create and initiate downloads for each script
+        downloadScripts.forEach((script, index) => {
+            const downloadLink = document.createElement('a');
+            downloadLink.href = `data:text/plain;charset=utf-8,${encodeURIComponent(script)}`;
+            downloadLink.download = `app_script_${index}.txt`; // Provide a suitable filename
+
+            // Trigger the download
+            downloadLink.click();
       });
-}
+    } catch (error) {
+      console.error('Error occurred during download:', error);
+    }
+  };
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="app-selector">

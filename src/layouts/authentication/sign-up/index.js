@@ -63,7 +63,8 @@ function Cover() {
 
 
   // tokenhandling
-  const { setToken } = useContext(TokenContext);
+  const { setNewToken } = useContext(TokenContext);
+
 
 
 
@@ -86,7 +87,7 @@ function Cover() {
 
 
 
-const signupHandle = (e)=>{
+const signupHandle =  (e)=>{
   // navigate("/authentication/welcome");
   // setOpen(true);
 
@@ -102,12 +103,16 @@ const signupHandle = (e)=>{
   axios
       .post('http://127.0.0.1:8000/auth/signup/', userData)
       .then((response) => {
-        navigate("/authentication/welcome");
+        
         console.log(response);
         let data = response.data
-        console.log(data)
+        console.log({data})
         let token = data.token;
-        setToken(token);
+        setNewToken(token);
+        navigate("/authentication/welcome");
+        // localStorage.setItem('token',token)
+
+     
       })
       .catch((error) => {
         console.error(error);

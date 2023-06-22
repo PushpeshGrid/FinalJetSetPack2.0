@@ -86,7 +86,7 @@ import { TokenContext } from '../../../context/TokenContext';
 function Basic() {
 
    // tokenhandling
-   const { setNewToken } = useContext(TokenContext);
+   const { setNewToken,token } = useContext(TokenContext);
 
 
 
@@ -112,6 +112,10 @@ function Basic() {
 
   const [username,setUsername] = useState('');
   const [password,setPassword] = useState('');
+
+  // errorhandling
+  const [errorMessage, setErrorMessage] = useState('');
+
 
 
   const navigate = useNavigate()
@@ -150,16 +154,21 @@ axios
   console.log({token})
   setNewToken(token);
   navigate("/authentication/welcome");
-
   // localStorage.setItem('token',token)
-
-
 })
 .catch((error) => {
   console.error(error);
+  setErrorMessage('Please enter the correct username or password.');
 });
 
+
+if(!token){
+  setErrorMessage('Please enter the correct username or password.');
 }
+
+
+}
+
 
 
 
@@ -237,6 +246,7 @@ axios
 
             {/* <div> */}
             <button className="magicButton" onClick={loginHandle}>Sign In and Continue</button>
+            {errorMessage && <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{errorMessage}</p>}
             {/* <Dialog open={open} onClose={handleContinue}>
             <DialogTitle>Welcome</DialogTitle>
             <DialogContent>

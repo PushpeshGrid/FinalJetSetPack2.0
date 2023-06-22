@@ -26,6 +26,9 @@ const AppSelector = () => {
   const [installationStatus, setInstallationStatus] = useState(null)
 
 
+  const [isLoading, setIsLoading] = useState(true);
+
+
 //   rolechangind handling
   const handleRoleChange = (event) => {
     const { value } = event.target;
@@ -97,6 +100,7 @@ const AppSelector = () => {
             console.log(data)
             // Set the installation status in the component state
             setInstallationStatus(data);
+            setIsLoading(false)
         
             })
             .catch((error) => {
@@ -120,17 +124,10 @@ const AppSelector = () => {
       ));
     }
 
-    else{
-        return (
-            <p>
-                Installation Failed
-            </p>
-        )
-    }
-  
-
-
+   
   }
+
+
 
 
 

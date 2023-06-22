@@ -119,6 +119,14 @@ const AppSelector = () => {
         </li>
       ));
     }
+
+    else{
+        return (
+            <p>
+                Installation Failed
+            </p>
+        )
+    }
   
 
 

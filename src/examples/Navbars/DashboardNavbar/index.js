@@ -74,6 +74,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
 
 // handleprofileicon
 const [anchorEl, setAnchorEl] = useState(null);
+const navigate = useNavigate()
 
 const handleClick = (event) => {
   setAnchorEl(event.currentTarget);
@@ -81,6 +82,7 @@ const handleClick = (event) => {
 
 const handleClose = () => {
   setAnchorEl(null);
+  navigate('/authentication/sign-in')
 };
 
 const open = Boolean(anchorEl);
@@ -139,9 +141,14 @@ const id = open ? 'user-profile-popover' : undefined;
       onClose={handleCloseMenu}
       sx={{ mt: 2 }}
     >
-      <NotificationItem icon={<Icon>email</Icon>} title="Check new messages" />
-      <NotificationItem icon={<Icon>podcasts</Icon>} title="Manage Podcast sessions" />
-      <NotificationItem icon={<Icon>Tools</Icon>} title="new Tools " />
+      <Link to ='/notifications/'>
+        <NotificationItem icon={<Icon>email</Icon>} title="Check new messages" />
+      </Link>
+
+      <Link to = '/profile/'>
+      <NotificationItem icon={<Icon>podcasts</Icon>} title="Manage Account sessions" />
+      </Link>
+      <NotificationItem icon={<Icon>Tools</Icon>} title="New Tools " />
     </Menu>
   );
 
@@ -166,7 +173,9 @@ const id = open ? 'user-profile-popover' : undefined;
     >
       <Toolbar sx={(theme) => navbarContainer(theme)}>
         <MDBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
+
           <Breadcrumbs icon="home" title={route[route.length - 1]} route={route} light={light} />
+
         </MDBox>
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
@@ -198,9 +207,11 @@ const id = open ? 'user-profile-popover' : undefined;
         }}
       >
         <Box p={2} className='bg-slate-700 text-slate-200'>
-          <Typography>Pushpesh</Typography>
-          <Typography>Pushpesh@gmail.com</Typography>
+          <Typography>podiwal</Typography>
+          <Typography>plodiwal@gmail.com</Typography>
+         {/* <Link to ='/authentication/sign-in'> */}
           <Button onClick={handleClose} class='text-cyan-300'>Logout</Button>
+          {/* </Link> */}
         </Box>
       </Popover>
 

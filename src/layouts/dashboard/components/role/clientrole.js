@@ -23,6 +23,8 @@ const AppSelector = () => {
   const [selectedRole, setSelectedRole] = useState('');
   const [filteredApps, setFilteredApps] = useState([]);
 
+  const [installationStatus, setInstallationStatus] = useState(null)
+
 
 //   rolechangind handling
   const handleRoleChange = (event) => {
@@ -35,25 +37,6 @@ const AppSelector = () => {
       setFilteredApps([]);
     }
   };
-
-
-//   downloadinghandling
-
-// const handleDownload = () =>{
-//     console.log('hi')
-//     axios
-//       .post('http://127.0.0.1:8000/set_environment/')
-//       .then((response) => {
-//         let data=response.data
-//         console.log(response , data);
-        
-       
-//       })
-//       .catch((error) => {
-//         console.error(error);
-        
-//       });
-// }
 
 
 // const handleDownload = async () =>{
@@ -86,6 +69,10 @@ const AppSelector = () => {
 
 
 
+
+
+
+
      // tokenhandling
      const { token } = useContext(TokenContext);
 
@@ -106,8 +93,10 @@ const AppSelector = () => {
                 }
             })
             .then((response) => {
-            let data = response.data
+            const { data } = response.data
             console.log(data)
+            // Set the installation status in the component state
+            setInstallationStatus(data);
         
             })
             .catch((error) => {
@@ -120,10 +109,20 @@ const AppSelector = () => {
   };
 
      
+  const renderInstallationStatus = () => {
+    if (installationStatus) {
+      return Object.keys(installationStatus).map((appName) => (
+        <p key={appName}>
+          {`${appName}: ${
+            installationStatus[appName] === 'Failed' ? 'Failed to install' : 'are installed'
+          }`}
+        </p>
+      ));
+    }
   
 
 
-
+  }
 
 
 
@@ -141,18 +140,21 @@ const AppSelector = () => {
         <div className="app-list">
         <div className='flex justify-start '>
           <h3>Apps for {selectedRole}:</h3>
-          <button className="mb-8 ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded" onClick={handleDownload}>Download</button>
+          <div>
+            <button className="mb-8 ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded" onClick={handleDownload}>Run</button>
+            {renderInstallationStatus()}
+          </div>
         </div>
-          <ul>
+          {/* <ul>
             {filteredApps.map((app, index) => (
               <li key={index}>{app}</li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       ) : null}
     </div>
   );
-};
+            }
 
 export default AppSelector;
 

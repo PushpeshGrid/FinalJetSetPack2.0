@@ -237,7 +237,8 @@ const handleClickInfo = () => {
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                 <Typography gutterBottom>
-                A developer should not have to go through the hassle of searching for an existing virtual machine or, worse yet, manually installing the entire environment from scratch.
+                  A developer should not have to go through the hassle of searching for and installing required tools or, worse yet, manually installing the entire environment from scratch.
+                  We provide basic functionality to spin up development environments on a local machine with the required tools already installed and configured based on each user''s needs. We start with a couple of core options like setting up a local development machine, staging environment, production, etc., and then expand and customize them over time.
                 </Typography>
                 <Typography gutterBottom>
                 Provide basic functionality to spin up development environments in the cloud with required tools installed and configured based on each company's needs. Start with a couple core options like local dev machine setup, staging environment, production, etc. Expand and customize over time.

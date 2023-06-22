@@ -82,7 +82,7 @@ const handleClick = (event) => {
 
 const handleClose = () => {
   setAnchorEl(null);
-  navigate('/authentication/sign-in')
+  // navigate('/authentication/sign-in')
 };
 
 const open = Boolean(anchorEl);
@@ -209,9 +209,9 @@ const id = open ? 'user-profile-popover' : undefined;
         <Box p={2} className='bg-slate-700 text-slate-200'>
           <Typography>podiwal</Typography>
           <Typography>plodiwal@gmail.com</Typography>
-         {/* <Link to ='/authentication/sign-in'> */}
+         <Link to ='/authentication/sign-in'>
           <Button onClick={handleClose} class='text-cyan-300'>Logout</Button>
-          {/* </Link> */}
+          </Link>
         </Box>
       </Popover>
 

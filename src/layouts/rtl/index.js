@@ -147,7 +147,7 @@ function RTL() {
   //   console.log(error);
   // });
 
-  let userInput = prompt('Enter your message:');
+  let userInput = 'Hi what is your question in detail';
   let data = userInput.trim();
   console.log(userInput);
   

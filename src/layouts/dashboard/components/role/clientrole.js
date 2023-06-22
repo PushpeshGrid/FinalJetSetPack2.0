@@ -6,10 +6,17 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
+// fortoken
+
+import { useContext } from 'react';
+
+import { TokenContext } from '../../../../context/TokenContext';
+
+
 const AppList = {
-    frontend: ['App 1', 'App 2', 'App 3','app 4'],
-    backend: ['App 4', 'App 5', 'App 6'],
-    datascience: ['App 7', 'App 8', 'App 9'],
+    Frontend: ['App 1', 'App 2', 'App 3','app 4'],
+    Backend: ['App 4', 'App 5', 'App 6'],
+    Data_Science: ['App 7', 'App 8', 'App 9'],
 };
 
 const AppSelector = () => {
@@ -49,36 +56,71 @@ const AppSelector = () => {
 // }
 
 
-const handleDownload = async () =>{
+// const handleDownload = async () =>{
 
-    try {
-        // Make a POST request to retrieve the array of strings containing download scripts
-        const response = await axios.post('http://127.0.0.1:8000/set_environment/', {
-          token: 'your_token_here' // Replace with your actual token
-        });
-        console.log(response)
+//     try {
+//         // Make a POST request to retrieve the array of strings containing download scripts
+//         const response = await axios.post('http://127.0.0.1:8000/set_environment/', {
+//           token: 'your_token_here' // Replace with your actual token
+//         });
+//         console.log(response)
 
+
+//         // const downloadScripts = response.data; // Assuming the response contains the array of strings
+
+//         // Dynamically create and initiate downloads for each script
+//         // downloadScripts.forEach((script, index) => {
+//             // const downloadLink = document.createElement('a');
+//             // downloadLink.href = `data:text/plain;charset=utf-8,${encodeURIComponent(script)}`;
+//             // downloadLink.download = `app_script_${index}.txt`; // Provide a suitable filename
+
+//             // Trigger the download
+//             // downloadLink.click();
+//       });
+//     } catch (error) {
+//       console.error('Error occurred during download:', error);
+//     }
+//   };
+
+
+
+
+
+     // tokenhandling
+     const { token } = useContext(TokenContext);
+
+
+     const handleDownload = (e)=>{
+        e.preventDefault();
+        console.log('clicked')
+
+        let userdata = {
+            roles:selectedRole
+        }
+        console.log(userdata);
+
+        axios
+            .post('http://127.0.0.1:8000/set_environment/', userdata,{
+                headers:{
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then((response) => {
+            let data = response.data
+            console.log(data)
         
-        const downloadScripts = response.data; // Assuming the response contains the array of strings
+            })
+            .catch((error) => {
+            console.error(error);
+            });
 
-        // Dynamically create and initiate downloads for each script
-        downloadScripts.forEach((script, index) => {
-            const downloadLink = document.createElement('a');
-            downloadLink.href = `data:text/plain;charset=utf-8,${encodeURIComponent(script)}`;
-            downloadLink.download = `app_script_${index}.txt`; // Provide a suitable filename
-
-            // Trigger the download
-            downloadLink.click();
-      });
-    } catch (error) {
-      console.error('Error occurred during download:', error);
-    }
+            
+            // navigate('/dashboard/')
+            // Add your submit logic here
   };
 
-
-
-
-
+     
+  
 
 
 
@@ -90,9 +132,9 @@ const handleDownload = async () =>{
       <label htmlFor="role">Select Role:</label>
       <select id="role" value={selectedRole} onChange={handleRoleChange}>
         <option value="">-- Select Role --</option>
-        <option value="frontend">Frontend</option>
-        <option value="backend">Backend</option>
-        <option value="datascience">Datascience</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="Data_Science">Datascience</option>
       </select>
 
       {filteredApps.length > 0 ? (

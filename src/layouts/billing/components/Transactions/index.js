@@ -1,5 +1,3 @@
-
-
 // @mui material components
 import Card from "@mui/material/Card";
 // import Divider from "@mui/material/Divider";
@@ -27,7 +25,7 @@ function Transactions() {
             </Icon>
           </MDBox>
           <MDTypography variant="button" color="text" fontWeight="regular">
-            23 - 30 March 2020
+            21 january - 23 July 2023
           </MDTypography>
         </MDBox>
       </MDBox>
@@ -48,16 +46,16 @@ function Transactions() {
           <Transaction
             color="error"
             icon="expand_more"
-            name="Netflix"
-            description="27 March 2020, at 12:30 PM"
-            value="- $ 2,500"
+            name="Slack"
+            description="Thu 15 Jun, at 12:30 PM"
+            value="- $ 8,500"
           />
           <Transaction
             color="success"
             icon="expand_less"
-            name="Apple"
-            description="27 March 2020, at 04:30 AM"
-            value="+ $ 2,000"
+            name="Django"
+            description="Thu 14 Jun, at 12:30 PM"
+            value="+ $ 3,400"
           />
         </MDBox>
         <MDBox mt={1} mb={2}>
@@ -76,29 +74,29 @@ function Transactions() {
           <Transaction
             color="success"
             icon="expand_less"
-            name="Stripe"
-            description="26 March 2020, at 13:45 PM"
-            value="+ $ 750"
+            name="Data Science Tools"
+            description="Thu 13 Jun, at 12:30 PM"
+            value="+ $50"
           />
           <Transaction
             color="success"
             icon="expand_less"
-            name="HubSpot"
-            description="26 March 2020, at 12:30 PM"
-            value="+ $ 1,000"
+            name="Front-End Tools"
+            description="Thu 12 Jun, at 12:30 PM"
+            value="+ $ 9,000"
           />
           <Transaction
             color="success"
             icon="expand_less"
-            name="Creative Tim"
-            description="26 March 2020, at 08:30 AM"
-            value="+ $ 2,500"
+            name="Python backend tools"
+            description="Thu 11 Jun, at 12:30 PM"
+            value="+ $ 5,500"
           />
           <Transaction
             color="dark"
             icon="priority_high"
-            name="Webflow"
-            description="26 March 2020, at 05:00 AM"
+            name="gridcloud"
+            description="Thu 10 Jun, at 12:30 PM"
             value="Pending"
           />
         </MDBox>

@@ -51,7 +51,7 @@ export default function data() {
         project: <Project image={LogoAsana} name="Asana" />,
         budget: (
           <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
-            $2,500
+            $400
           </MDTypography>
         ),
         status: (
@@ -70,7 +70,7 @@ export default function data() {
         project: <Project image={logoGithub} name="Github" />,
         budget: (
           <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
-            $5,000
+            $4,000
           </MDTypography>
         ),
         status: (

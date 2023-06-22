@@ -66,7 +66,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Projects Table
+                  Tools Table
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>

@@ -2,6 +2,11 @@ import './clientrole.css'
 
 import React, { useState } from 'react';
 
+
+
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 // axios import
 import axios from 'axios';
 
@@ -26,7 +31,12 @@ const AppSelector = () => {
   const [installationStatus, setInstallationStatus] = useState(null)
 
 
-  const [isLoading, setIsLoading] = useState(true);
+//   loadinghanding
+  const [isLoading, setIsLoading] = useState(false);
+
+//   error handling
+
+const [errorMessage, setErrorMessage] = useState('');
 
 
 //   rolechangind handling
@@ -82,6 +92,9 @@ const AppSelector = () => {
 
      const handleDownload = (e)=>{
         e.preventDefault();
+
+        setIsLoading(true)
+
         console.log('clicked')
 
         let userdata = {
@@ -105,6 +118,9 @@ const AppSelector = () => {
             })
             .catch((error) => {
             console.error(error);
+            setErrorMessage('Installation Failed')
+            setIsLoading(false)
+            
             });
 
             
@@ -127,6 +143,22 @@ const AppSelector = () => {
    
   }
 
+  const loadingCircle = ()=> {
+
+    if(isLoading){
+        return(
+            <Box sx={{ display: 'flex' }}>
+                <CircularProgress />
+            </Box>
+        )
+    }
+
+
+
+  
+    
+
+  }
 
 
 
@@ -146,15 +178,19 @@ const AppSelector = () => {
         <div className='flex justify-start '>
           <h3>Apps for {selectedRole}:</h3>
           <div>
+
             <button className="mb-8 ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded" onClick={handleDownload}>Run</button>
-            
+            {loadingCircle()}
+            {errorMessage && <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{errorMessage}</p>}
           </div>
         </div>
           <ul>
             {/* {filteredApps.map((app, index) => (
               <li key={index}>{app}</li>
             ))} */}
+
             {renderInstallationStatus()}
+
           </ul>
         </div>
       ) : null}

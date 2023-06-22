@@ -2,6 +2,23 @@
 
 import { useState, useEffect } from "react";
 
+
+
+import { useNavigate } from "react-router-dom";
+
+// profileiconinfo
+import {
+  Popover,
+  Typography,
+  Box,
+  Button,
+} from '@mui/material';
+
+
+
+
+
+
 // react-router components
 import { useLocation, Link } from "react-router-dom";
 
@@ -40,7 +57,38 @@ import {
   setOpenConfigurator,
 } from "context";
 
+
+
+
+
+
+
+
+
+
+
 function DashboardNavbar({ absolute, light, isMini }) {
+
+
+
+
+// handleprofileicon
+const [anchorEl, setAnchorEl] = useState(null);
+
+const handleClick = (event) => {
+  setAnchorEl(event.currentTarget);
+};
+
+const handleClose = () => {
+  setAnchorEl(null);
+};
+
+const open = Boolean(anchorEl);
+const id = open ? 'user-profile-popover' : undefined;
+
+
+
+
   const [navbarType, setNavbarType] = useState();
   const [controller, dispatch] = useMaterialUIController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator, darkMode } = controller;
@@ -93,7 +141,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
     >
       <NotificationItem icon={<Icon>email</Icon>} title="Check new messages" />
       <NotificationItem icon={<Icon>podcasts</Icon>} title="Manage Podcast sessions" />
-      <NotificationItem icon={<Icon>shopping_cart</Icon>} title="Payment successfully completed" />
+      <NotificationItem icon={<Icon>Tools</Icon>} title="new Tools " />
     </Menu>
   );
 
@@ -122,15 +170,46 @@ function DashboardNavbar({ absolute, light, isMini }) {
         </MDBox>
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <MDBox pr={1}>
+            {/* <MDBox pr={1}>
               <MDInput label="Search here" />
-            </MDBox>
+            </MDBox> */}
             <MDBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in/basic">
-                <IconButton sx={navbarIconButton} size="small" disableRipple>
+
+
+              {/* <Link to="/authentication/sign-in/basic"> */}
+
+                <IconButton sx={navbarIconButton} size="small" disableRipple  onClick={handleClick}>
                   <Icon sx={iconsStyle}>account_circle</Icon>
                 </IconButton>
-              </Link>
+              {/* </Link> */}
+
+        <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <Box p={2} className='bg-slate-700 text-slate-200'>
+          <Typography>Pushpesh</Typography>
+          <Typography>Pushpesh@gmail.com</Typography>
+          <Button onClick={handleClose} class='text-cyan-300'>Logout</Button>
+        </Box>
+      </Popover>
+
+
+
+        
+      
+
+
               <IconButton
                 size="small"
                 disableRipple

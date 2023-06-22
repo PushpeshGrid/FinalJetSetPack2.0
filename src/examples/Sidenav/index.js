@@ -166,7 +166,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       />
       <List>{renderRoutes}</List>
       <MDBox p={2} mt="auto">
-        <MDButton
+        {/* <MDButton
           component="a"
           href="#"
           target="_blank"
@@ -176,7 +176,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           fullWidth
         >
           upgrade to pro
-        </MDButton>
+        </MDButton> */}
       </MDBox>
     </SidenavRoot>
   );

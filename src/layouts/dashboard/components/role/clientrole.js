@@ -112,11 +112,11 @@ const AppSelector = () => {
   const renderInstallationStatus = () => {
     if (installationStatus) {
       return Object.keys(installationStatus).map((appName) => (
-        <p key={appName}>
+        <li key={appName}>
           {`${appName}: ${
-            installationStatus[appName] === 'Failed' ? 'Failed to install' : 'are installed'
+            installationStatus[appName] === 'Failed' ? 'Failed to Install' : 'Successfully Installed'
           }`}
-        </p>
+        </li>
       ));
     }
   
@@ -142,14 +142,15 @@ const AppSelector = () => {
           <h3>Apps for {selectedRole}:</h3>
           <div>
             <button className="mb-8 ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded" onClick={handleDownload}>Run</button>
-            {renderInstallationStatus()}
+            
           </div>
         </div>
-          {/* <ul>
-            {filteredApps.map((app, index) => (
+          <ul>
+            {/* {filteredApps.map((app, index) => (
               <li key={index}>{app}</li>
-            ))}
-          </ul> */}
+            ))} */}
+            {renderInstallationStatus()}
+          </ul>
         </div>
       ) : null}
     </div>

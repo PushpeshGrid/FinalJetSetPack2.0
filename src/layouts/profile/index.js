@@ -86,7 +86,10 @@ function Overview() {
             </Grid>
           </Grid>
         </MDBox>
-        <MDBox pt={2} px={2} lineHeight={1.25}>
+
+
+
+        {/* <MDBox pt={2} px={2} lineHeight={1.25}>
           <MDTypography variant="h6" fontWeight="medium">
             My Projects
           </MDTypography>
@@ -95,9 +98,9 @@ function Overview() {
               Projects which have been completed 
             </MDTypography>
           </MDBox>
-        </MDBox>
-        <MDBox p={2}>
-          <Grid container spacing={6}>
+        </MDBox> */}
+        {/* <MDBox p={2}> */}
+          {/* <Grid container spacing={6}>
             <Grid item xs={12} md={6} xl={3}>
               <DefaultProjectCard
                 image={homeDecor1}
@@ -178,8 +181,8 @@ function Overview() {
                 ]}
               />
             </Grid>
-          </Grid>
-        </MDBox>
+          </Grid> */}
+        {/* </MDBox> */}
       </Header>
       <Footer />
     </DashboardLayout>

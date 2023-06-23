@@ -201,7 +201,7 @@ const handleClickInfo = () => {
 
   return (
     <div className='text-[#6bb5ff]'>
-      <div className='max-w-[800px] mt-[-40px] w-full h-screen mx-auto text-center flex flex-col justify-center'>
+      <div className='max-w-[800px] mt-[-140px] w-full h-screen mx-auto text-center flex flex-col justify-center'>
         <p className='text-[#131a18] font-bold p-2'>
           Welcome to JetSetPack
         </p>
@@ -226,7 +226,7 @@ const handleClickInfo = () => {
 
 
         <div>
-                <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'  onClick={handleClickLearn}>Learn More</button>
+                <button className='bg-[#00df9a] hover:bg-violet-400 w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black'  onClick={handleClickLearn}>Learn More</button>
                 <BootstrapDialog
                 onClose={handleCloseLearn}
                 aria-labelledby="customized-dialog-title"
@@ -257,11 +257,11 @@ const handleClickInfo = () => {
 
 
       </div>
-      <div className='flex justify-flex start text-center flex-col'>
+      <div className='flex justify-flex start text-center flex-col mt-[-150px]'>
       <h2 className = ' md:text-2xl mx-auto text-center flex flex-col justify-center'>Here's a quick tutorial on how to use our site for New Users </h2>
 
       <div>
-        <button className='bg-[#0082df] w-[100px] rounded-md font-medium mx-3 text-white mt-1' onClick={handleClickInfo}>Info</button>
+        <button className='bg-[#0082df] hover:bg-violet-600  w-[100px] rounded-md font-medium mx-3 text-white mt-1' onClick={handleClickInfo}>Info</button>
         <BootstrapDialog
                 onClose={handleCloseInfo}
                 aria-labelledby="customized-dialog-title"
@@ -271,8 +271,8 @@ const handleClickInfo = () => {
                     JetSetPack2.0
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
-                <Typography gutterBottom>
-                    1. get your username from the below command
+                <Typography gutterBottom class='text-base'>
+                    1. Get your username from the below command
                 </Typography>
 
                 <Typography gutterBottom
@@ -285,17 +285,17 @@ const handleClickInfo = () => {
                     whoami
                 </Typography>
                 <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard1}>
-                    <FaCopy /> Copy text
+                    <FaCopy /> 
                 </button>
-                {copied1 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
+                {copied1 && <p className='text-[#bfc1c2]'>Copied </p>}
 
 
 
-                <Typography gutterBottom>
+                <Typography gutterBottom class='text-base'>
                     2. Copy the user and keep it
                 </Typography>
 
-                <Typography gutterBottom>
+                <Typography gutterBottom class='text-base'>
                     3. Switch to root user
                 </Typography>
 
@@ -308,13 +308,13 @@ const handleClickInfo = () => {
                     sudo su - 
                 </Typography>
                 <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard2}>
-                    <FaCopy /> Copy text
+                    <FaCopy /> 
                 </button>
-                {copied2 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
+                {copied2 && <p className='text-[#bfc1c2]'>Copied </p>}
 
 
 
-                <Typography gutterBottom>
+                <Typography gutterBottom class='text-base'>
                     4. Copying ansible keys to authorized keys
                 </Typography>
 
@@ -348,11 +348,11 @@ const handleClickInfo = () => {
                 jZbP+V7j3tJ9T3GXqCR8nLhpiYfZCtkO9knFtnacafgA/XHpMM= rsah@rsahs-MacBook-Pro.local" {'>>'} ~/.ssh/authorized_keys
                 </Typography>
                 <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard3}>
-                    <FaCopy /> Copy text
+                    <FaCopy /> 
                 </button>
-                {copied3 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
+                {copied3 && <p className='text-[#bfc1c2]'>Copied </p>}
 
-                <Typography gutterBottom>
+                <Typography gutterBottom class='text-base'>
                     5. Adding copied user to sudoer file. Replace $user with your username
                 </Typography>
 
@@ -367,19 +367,19 @@ const handleClickInfo = () => {
                 </Typography>
 
                 <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard4}>
-                    <FaCopy /> Copy text
+                    <FaCopy />
                 </button>
-                {copied4 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
+                {copied4 && <p className='text-[#bfc1c2]'>Copied </p>}
 
 
 
-                <Typography gutterBottom>
+                <Typography gutterBottom class='text-base'>
                     6. Please ensure remote login is on
                 </Typography>
             
 
-                <Typography gutterBottom>
-                    7. restart your system
+                <Typography gutterBottom class='text-base'>
+                    7. Restart your system
                 </Typography>
 
                 <Typography gutterBottom
@@ -391,9 +391,9 @@ const handleClickInfo = () => {
                    sudo reboot
                 </Typography>
                 <button className = 'flex justify-start my-2 text-[#bfc1c2]'onClick={handleCopyToClipboard5}>
-                    <FaCopy /> Copy text
+                    <FaCopy /> 
                 </button>
-                {copied5 && <p className='text-[#bfc1c2]'>Text copied to clipboard!</p>}
+                {copied5 && <p className='text-[#bfc1c2]'>Copied</p>}
 
 
                 

@@ -75,14 +75,14 @@ const Aboutjetset = () => {
 
 
   return (
-    <div className='w-full py-16 px-4'>
-    <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
+    <div className='w-full px-4'>
+    <div className='max-w-[1240px] mx-auto grid md:grid-cols-2 '>
 
         
       {/* <img className='w-[500px] mx-auto my-4' src={JetsetPack} alt='/' /> */}
 
        <div className="flex justify-center items-center h-screen">
-       <div className="bg-gray-100 rounded p-8 animate-slide-in">
+       <div className="bg-gray-100 rounded p-8 animate-slide-in mt-[-220px]">
          <h1 className="text-2xl font-bold mb-4">Welcome to the Website!</h1>
          <form >
            <div className="mb-4">
@@ -133,7 +133,7 @@ const Aboutjetset = () => {
 
 
 
-      <div className='flex flex-col justify-center'>
+      <div className='flex flex-col justify-center mt-[-200px]'>
         <p className='text-[#00df9a] font-bold '>WHAT IS JETSETPACK</p>
         <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2'>One Click Environment and Packaging Setup</h1>
         <p>

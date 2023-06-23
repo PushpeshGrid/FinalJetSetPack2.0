@@ -186,7 +186,7 @@ const [errorMessage, setErrorMessage] = useState('');
           <h3>Apps for {selectedRole}:</h3>
           <div>
 
-            <button className="mb-8 ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded" onClick={handleDownload}>Run</button>
+            <button className="mb-8 ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded" onClick={handleDownload}>Install all</button>
             {loadingCircle()}
             {errorMessage && <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{errorMessage}</p>}
           </div>

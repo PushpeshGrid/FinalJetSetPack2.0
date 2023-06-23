@@ -1,7 +1,7 @@
 
 
 import { useState, useEffect } from "react";
-
+import * as React from 'react';
 
 
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import {
   Popover,
   Typography,
-  Box,
   Button,
 } from '@mui/material';
 
@@ -60,7 +59,8 @@ import {
 
 
 
-
+// images
+import image from '../../../assets/images/Pushpeshprofile.jpg'
 
 
 
@@ -73,20 +73,38 @@ function DashboardNavbar({ absolute, light, isMini }) {
 
 
 // handleprofileicon
-const [anchorEl, setAnchorEl] = useState(null);
-const navigate = useNavigate()
 
-const handleClick = (event) => {
-  setAnchorEl(event.currentTarget);
-};
 
-const handleClose = () => {
-  setAnchorEl(null);
-  // navigate('/authentication/sign-in')
-};
+const [anchorEl, setAnchorEl] = React.useState(null);
 
-const open = Boolean(anchorEl);
-const id = open ? 'user-profile-popover' : undefined;
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'profile-dialog' : undefined;
+
+
+
+
+// const [anchorEl, setAnchorEl] = useState(null);
+// const navigate = useNavigate()
+
+// const handleClick = (event) => {
+//   setAnchorEl(event.currentTarget);
+// };
+
+// const handleClose = () => {
+//   setAnchorEl(null);
+//   // navigate('/authentication/sign-in')
+// };
+
+// const open = Boolean(anchorEl);
+// const id = open ? 'user-profile-popover' : undefined;
 
 
 
@@ -192,28 +210,43 @@ const id = open ? 'user-profile-popover' : undefined;
                 </IconButton>
               {/* </Link> */}
 
-        <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-      >
-        <Box p={2} className='bg-slate-700 text-slate-200'>
-          <Typography>podiwal</Typography>
-          <Typography>plodiwal@gmail.com</Typography>
-         <Link to ='/authentication/sign-in'>
-          <Button onClick={handleClose} class='text-cyan-300'>Logout</Button>
-          </Link>
-        </Box>
-      </Popover>
+
+
+
+              <Popover
+                  id={id}
+                  open={open}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                  }}
+                >
+                  <div className="bg-white rounded-lg"   style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px' }}>
+                    <img
+                      src={image}
+                      alt="Profile"
+                      className="w-10 h-10 rounded-full mx-auto mb-2"
+                     
+                    />
+                    <Typography variant="h6" component="div"className="text-xl text-center font-semibold mb-2" >
+                      plodiwal
+                    </Typography>
+                    <Typography class="text-center text-sm">
+                      plodiwal@gmail.com
+                    </Typography>
+                    <Link to ='/authentication/sign-in'>
+                      <Button onClick={handleClose} color="secondary" sx={{ mt: 2 }}>
+                        Logout
+                      </Button>
+                    </Link>
+                  </div>
+            </Popover>
 
 
 

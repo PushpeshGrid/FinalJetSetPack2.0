@@ -48,7 +48,22 @@
    
   } 
   
-  .app-list li::after{
+  /* .app-list li::after{
+  
+  
+    content: '';
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 4px solid #ccc;
+    position: absolute;
+    left: 30px;
+    background-color: blueviolet;
+    
+  
+  } */
+
+  .applist-passed::after{
   
   
     content: '';
@@ -62,6 +77,17 @@
     
   
   }
+  .applist-failed::after{
+    content: '';
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 4px solid #ccc;
+    position: absolute;
+    left: 30px;
+    background-color: rgb(247, 5, 5);
+  }
+
   
  
    

@@ -112,7 +112,7 @@ const Aboutjetset = () => {
               <option value="window">windows</option>
               <option value="MacOS">MacOS</option>
               <option value="linux">linux</option>
-              <option value="windowxp">windowxp</option>
+              
             </select>
           </div>
           <button
@@ -140,7 +140,9 @@ const Aboutjetset = () => {
         Focus on automating the setup and configuration of just the most essential tools that nearly every developer needs to do their job. These would include things like:
         Email and messaging
         Source control (GitHub, Bitbucket, etc.)
-        Project management
+        Project management,Primary programming languages/frameworks
+        Productivity software (Slack, Zoom, Google Suite, etc.).
+
 
         </p>
         {/* <button className='bg-black text-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0 py-3'>Get Started</button> */}

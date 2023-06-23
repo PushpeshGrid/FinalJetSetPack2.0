@@ -132,11 +132,23 @@ const [errorMessage, setErrorMessage] = useState('');
   const renderInstallationStatus = () => {
     if (installationStatus) {
       return Object.keys(installationStatus).map((appName) => (
-        <li key={appName}>
-          {`${appName}: ${
+       
+        // <li key={appName}>
+        <>
+             if(installationStatus[appName] === 'Failed'){
+                <li key ={appName} className='applist-failed'> {`${appName}:'Failed to Install'`}</li>
+                }
+
+            else{
+                <li key ={appName} className='applist-passed'> {`${appName}:'Successfully Installed'`}</li>
+                }
+            
+
+          {/* {`${appName}: ${
             installationStatus[appName] === 'Failed' ? 'Failed to Install' : 'Successfully Installed'
-          }`}
-        </li>
+          }`} */}
+          </>
+        // </li>
       ));
     }
 

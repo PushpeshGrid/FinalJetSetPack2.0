@@ -35,7 +35,7 @@ function PlatformSettings() {
           </MDBox>
           <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
-            Email me when someone answers on my post
+            Email me when some notification come
             </MDTypography>
           </MDBox>
         </MDBox>
@@ -46,7 +46,7 @@ function PlatformSettings() {
           </MDBox>
           <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              Email me when Someone follow me
+              Email me when Someone reply 
             </MDTypography>
           </MDBox>
         </MDBox>
@@ -57,7 +57,7 @@ function PlatformSettings() {
           </MDBox>
           <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone mentions me
+              Email me when new Tool update
             </MDTypography>
           </MDBox>
         </MDBox>
@@ -87,14 +87,16 @@ function PlatformSettings() {
           </MDBox>
         </MDBox>
         <MDBox display="flex" alignItems="center" mb={0.5} ml={-1.5}>
-          <MDBox mt={0.5}>
+          {/* <MDBox mt={0.5}>
             <Switch checked={newsletter} onChange={() => setNewsletter(!newsletter)} />
-          </MDBox>
-          <MDBox width="80%" ml={0.5}>
+          </MDBox> */}
+
+          {/* <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
               Subscribe to newsletter
             </MDTypography>
-          </MDBox>
+          </MDBox> */}
+
         </MDBox>
       </MDBox>
     </Card>

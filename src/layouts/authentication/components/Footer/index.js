@@ -204,18 +204,13 @@ function Footer({ light }) {
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
+          By using our website, you consent to granting us access to your machine, and we reserve the right to install, uninstall, and make certain modifications to your machine.
           </Typography>
           <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Please exercise caution while using this website, as it may result in security modifications to your machine.
           </Typography>
           <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
+          Using this website for any illegal activities is strictly prohibited, and you will be solely responsible for any legal consequences that may arise.
           </Typography>
         </DialogContent>
         <DialogActions>
@@ -248,7 +243,7 @@ function Footer({ light }) {
                 </MDTypography>
               </Link>
             </MDBox>
-            <MDBox component="li" pl={2} lineHeight={1}>
+            {/* <MDBox component="li" pl={2} lineHeight={1}>
               <Link href="#" target="_blank">
                 <MDTypography
                   variant="button"
@@ -258,7 +253,7 @@ function Footer({ light }) {
                   License
                 </MDTypography>
               </Link>
-            </MDBox>
+            </MDBox> */}
           </MDBox>
         </MDBox>
       </Container>

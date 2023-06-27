@@ -83,6 +83,10 @@ const Index = ()=> {
   // delete handling
 
   const [uninstall,setUninstall] = useState('');
+
+
+  //renderappmessage
+  const [appRender,setAppRender] = useState(false);
   
   
   //   rolechangind handling
@@ -179,6 +183,9 @@ const Index = ()=> {
 
     const handleDelete = (e)=>{
         e.preventDefault();
+
+        setAppRender(true);
+
 
         let userdata = {
             roles:selectedRole
@@ -306,7 +313,7 @@ const Index = ()=> {
               <li key={index}>{app}</li>
             ))} */}
 
-            {renderInstallationStatus()}
+            {appRender === false ? renderInstallationStatus(): ''}
 
           </ul>
         </div>

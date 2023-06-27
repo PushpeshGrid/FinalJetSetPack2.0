@@ -182,9 +182,12 @@ const Index = ()=> {
 // uninstallhandling
 
     const handleDelete = (e)=>{
+        
         e.preventDefault();
 
         setAppRender(true);
+        setIsLoading(true)
+
 
 
         let userdata = {
@@ -201,10 +204,11 @@ const Index = ()=> {
             
         // const { data } = response.data
         console.log(response.data)
+        setIsLoading(false)
         setUninstall('Successfully Uninstall')
         // Set the installation status in the component state
         // setInstallationStatus(data);
-        // setIsLoading(false)
+        
     
         })
         .catch((error) => {

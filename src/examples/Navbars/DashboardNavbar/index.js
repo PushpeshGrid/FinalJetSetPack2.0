@@ -241,7 +241,7 @@ const [profilename,setProfileName] = useState('plodiwal')
                      
                     />
                     <Typography variant="h6" component="div"className="text-xl text-center font-semibold mb-2" >
-                     'plodiwal'
+                     plodiwal
                     </Typography>
                     <Typography class="text-center text-sm">
                       plodiwal@gmail.com

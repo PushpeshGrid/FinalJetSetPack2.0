@@ -125,6 +125,12 @@ export default function FloatingActionButtonZoom() {
               <p>
                 <FontAwesomeIcon icon={faFile} /> Python
               </p>
+              <p>
+                <FontAwesomeIcon icon={faFile} /> Homebrew Cask
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faFile} /> PyCharm
+              </p>
             </>
           )}
         </TabPanel>

@@ -185,7 +185,7 @@ const Index = ()=> {
         }
 
         axios
-        .post('http://127.0.0.1:8000/set_environment/', userdata,{
+        .post('http://localhost:8000/delete_environment/', userdata,{
             headers:{
                 'Authorization': `Bearer ${token}`
             }

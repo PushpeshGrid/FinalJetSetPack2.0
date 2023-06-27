@@ -62,8 +62,8 @@ function Dashboard() {
                 count=""
                 percentage={{
                   color: "success",
-                  amount: "+3%",
-                  label: "than last month",
+                  // amount: "+3%",
+                  // label: "month updated",
                 }}
               />
             </MDBox>
@@ -77,8 +77,8 @@ function Dashboard() {
                 count=""
                 percentage={{
                   color: "success",
-                  amount: "+1%",
-                  label: "than yesterday",
+                  // amount: "+1%",
+                  label: "yesterday updated",
                 }}
               />
             </MDBox>
@@ -100,7 +100,7 @@ function Dashboard() {
           </Grid>
         </Grid>
 
-        <AppSelector />
+        {/* <AppSelector /> */}
 
 
 {/* 

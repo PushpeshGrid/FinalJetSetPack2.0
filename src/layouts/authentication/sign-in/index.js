@@ -85,6 +85,9 @@ import { TokenContext } from '../../../context/TokenContext';
 
 function Basic() {
 
+
+  
+
    // tokenhandling
    const { setNewToken,token } = useContext(TokenContext);
 
@@ -129,6 +132,10 @@ const loginHandle= (e)=>{
 
   e.preventDefault();
 
+
+
+
+  sessionStorage.setItem('username', username )
 
   const userData = {
     username,
@@ -200,19 +207,19 @@ if(!token){
 
             <Grid item xs={2}>
               <MDTypography component={MuiLink} href="#" variant="body1" color="white">
-                <FacebookIcon color="inherit" />
+                {/* <FacebookIcon color="inherit" /> */}
               </MDTypography>
             </Grid>
 
             <Grid item xs={2}>
               <MDTypography component={MuiLink} href="#" variant="body1" color="white">
-                <GitHubIcon color="inherit" />
+                {/* <GitHubIcon color="inherit" /> */}
               </MDTypography>
             </Grid>
 
             <Grid item xs={2}>
               <MDTypography component={MuiLink} href="#" variant="body1" color="white">
-                <GoogleIcon color="inherit" />
+                {/* <GoogleIcon color="inherit" /> */}
               </MDTypography>
             </Grid>
             

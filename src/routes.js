@@ -14,6 +14,9 @@ import SignUp from "layouts/authentication/sign-up";
 // welcomepage
 import Welcomepage from './layouts/authentication/components/Aftersign/index.js'
 
+
+import Role from './layouts/role/index.js'
+
 // @mui icons
 import Icon from "@mui/material/Icon";
 
@@ -42,14 +45,14 @@ const routes = [
   //   route: "/billing",
   //   component: <Billing />,
   // },
-  {
-    type: "collapse",
-    name: "Chatbot",
-    key: "rtl",
-    icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-    route: "/rtl",
-    component: <RTL />,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Chatbot",
+  //   key: "rtl",
+  //   icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
+  //   route: "/rtl",
+  //   component: <RTL />,
+  // },
   {
     type: "collapse",
     name: "Notifications",
@@ -88,6 +91,14 @@ const routes = [
     key: "welcome_page",
     route: "/authentication/welcome",
     component: <Welcomepage />,
+  },
+  {
+    type: "collapse",
+    name: "OneClickSetup",
+    key: "welcome_page",
+    route: "/oneclicksetup/",
+    icon: <Icon fontSize="small">assignment</Icon>,
+    component: <Role />,
   }
 
 ];

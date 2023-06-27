@@ -161,10 +161,6 @@ const [errorMessage, setErrorMessage] = useState('');
     }
 
 
-
-  
-    
-
   }
 
 
@@ -172,7 +168,7 @@ const [errorMessage, setErrorMessage] = useState('');
 
   return (
     <div className="app-selector">
-      <label htmlFor="role">Select Role:</label>
+      <label htmlFor="role">Roles:</label>
       <select id="role" value={selectedRole} onChange={handleRoleChange}>
         <option value="">-- Select Role --</option>
         <option value="Frontend">Frontend</option>

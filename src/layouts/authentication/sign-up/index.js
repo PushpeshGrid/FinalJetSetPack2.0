@@ -84,7 +84,8 @@ function Cover() {
   const [password, setPassword] = useState('')
 
 
-
+ // errorhandling
+ const [errorMessage, setErrorMessage] = useState('');
 
 
 const signupHandle =  (e)=>{
@@ -116,6 +117,7 @@ const signupHandle =  (e)=>{
       })
       .catch((error) => {
         console.error(error);
+        setErrorMessage('Username already exit.');
       });
     
  
@@ -195,6 +197,7 @@ const signupHandle =  (e)=>{
 
           {/* <div> */}
             <button className="magicButton" onClick={signupHandle}>Sign Up and Continue</button>
+            {errorMessage && <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{errorMessage}</p>}
 {/* 
             <Dialog open={open} onClose={handleContinue}>
             <DialogTitle>Welcome</DialogTitle>

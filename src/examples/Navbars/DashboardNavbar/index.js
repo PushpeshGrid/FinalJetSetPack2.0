@@ -76,6 +76,12 @@ function DashboardNavbar({ absolute, light, isMini }) {
 
 
 const [anchorEl, setAnchorEl] = React.useState(null);
+const [profilename,setProfileName] = useState('plodiwal')
+
+
+// setProfileName(sessionStorage.getItem('username'))
+
+
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -235,7 +241,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                      
                     />
                     <Typography variant="h6" component="div"className="text-xl text-center font-semibold mb-2" >
-                      plodiwal
+                     'plodiwal'
                     </Typography>
                     <Typography class="text-center text-sm">
                       plodiwal@gmail.com

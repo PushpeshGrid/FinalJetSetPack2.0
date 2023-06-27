@@ -110,6 +110,21 @@ export default function FloatingActionButtonZoom() {
               <p>
                 <FontAwesomeIcon icon={faFile} /> Sublime Text
               </p>
+              <p>
+                <FontAwesomeIcon icon={faFile} /> Firefox
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faFile} /> Zoom
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faFile} /> Slack
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faFile} /> Django
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faFile} /> Python
+              </p>
             </>
           )}
         </TabPanel>
@@ -128,9 +143,7 @@ export default function FloatingActionButtonZoom() {
               <p>
                 <FontAwesomeIcon icon={faFile} /> Python
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> PIP
-              </p>
+              
             </>
           )}
         </TabPanel>

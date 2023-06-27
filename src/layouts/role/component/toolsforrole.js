@@ -9,6 +9,24 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
+import VisualCode from '../../../assets/images/icons/flags/visual-studio.png';
+import Python from '../../../assets/images/icons/flags/python.gif';
+import Github from '../../../assets/images/icons/flags/github.gif';
+import Homebrew from '../../../assets/images/icons/flags/homebrew.png';
+
+import Sublime from '../../../assets/images/icons/flags/sublime.png';
+import Firefox from '../../../assets/images/icons/flags/firefox.png';
+
+import Zoom from '../../../assets/images/icons/flags/zoom.png';
+
+import Slack from '../../../assets/images/icons/flags/slack.png';
+
+import Djando from '../../../assets/images/icons/flags/django.png';
+import Cask from '../../../assets/images/icons/flags/homebrewCask.png';
+import Pycharm from '../../../assets/images/icons/flags/pycharm.gif';
+import Chrome from '../../../assets/images/icons/flags/chrome.gif';
+
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,6 +70,12 @@ export default function FloatingActionButtonZoom() {
     setValue(index);
   };
 
+
+
+const backendApps = ['VsCode','GitHub','Homebrew','Sublime Text','Firefox','Zoom','Slack','Django','Python','Homebrew Cask','PyCharm','Chrome']
+
+
+
   return (
     <Box
       sx={{
@@ -83,14 +107,14 @@ export default function FloatingActionButtonZoom() {
         <TabPanel value={value} index={0} dir={theme.direction}>
           {value === 0 && (
             <>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> VSCode
+              <p class='flex content-center gap-4 align-items: center p-2 font-roboto font-helvetica font-arial font-sans'>
+              <img src ={VisualCode} class='h-8 w-8' alt ='vscode'/> VsCode
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> GitHub
-              </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Homebrew
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Github} class='h-8 w-8' alt ='vscode'/> GitHub
+              </p> 
+              <p class='flex content-center gap-4 align-items: center p-2'>
+               <img src ={Homebrew} class='h-8 w-8' alt ='vscode'/> Homebrew
               </p>
             </>
           )}
@@ -98,38 +122,42 @@ export default function FloatingActionButtonZoom() {
         <TabPanel value={value} index={1} dir={theme.direction}>
           {value === 1 && (
             <>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> VSCode
+           
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={VisualCode} class='h-8 w-8' alt ='vscode'/> VsCode
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> GitHub
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Github} class='h-8 w-8' alt ='github'/> GitHub
+              </p> 
+               <p class='flex content-center gap-4 align-items: center p-2'>
+               <img src ={Homebrew} class='h-8 w-8' alt ='homebrew'/> Homebrew
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Homebrew
+              <p class='flex content-center gap-4 align-items: center p-2'> 
+              <img src ={Sublime} class='h-8 w-8' alt ='sublime'/> Sublime Text
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Sublime Text
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Firefox} class='h-8 w-8' alt ='firefox'/> Firefox
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Firefox
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Zoom} class='h-8 w-8' alt ='zoom'/> Zoom
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Zoom
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Slack} class='h-8 w-8' alt ='slack'/> Slack
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Slack
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Djando} class='h-8 w-8' alt ='django'/> Django
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Django
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Python} class='h-8 w-8' alt ='python'/> Python
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Python
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Cask} class='h-8 w-8' alt ='homebrew'/> Homebrew Cask
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Homebrew Cask
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Pycharm} class='h-8 w-8' alt ='pycharm'/> PyCharm
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> PyCharm
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Chrome} class='h-8 w-8' alt ='chrome'/> Chrome
               </p>
             </>
           )}
@@ -137,17 +165,17 @@ export default function FloatingActionButtonZoom() {
         <TabPanel value={value} index={2} dir={theme.direction}>
           {value === 2 && (
             <>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> VSCode
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={VisualCode} class='h-8 w-8' alt ='vscode'/> VsCode
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> GitHub
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Github} class='h-8 w-8' alt ='github'/> GitHub
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Homebrew
+              <p class='flex content-center gap-4 align-items: center p-2'>
+               <img src ={Homebrew} class='h-8 w-8' alt ='homebrew'/> Homebrew
               </p>
-              <p>
-                <FontAwesomeIcon icon={faFile} /> Python
+              <p class='flex content-center gap-4 align-items: center p-2'>
+              <img src ={Python} class='h-8 w-8' alt ='python'/> Python
               </p>
               
             </>

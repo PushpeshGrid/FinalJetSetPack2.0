@@ -16,7 +16,7 @@ import Toolsforrole from './component/toolsforrole';
 
 
 // deletebutton
-import DeleteTools from './component/deletetools';
+// import DeleteTools from './component/deletetools';
 
 
 
@@ -39,7 +39,7 @@ import MDBox from 'components/MDBox';
 // import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import NavigationIcon from '@mui/icons-material/Navigation';
-import { Rotate90DegreesCcw } from '@mui/icons-material';
+// import { Rotate90DegreesCcw } from '@mui/icons-material';
 
 
 
@@ -143,9 +143,9 @@ const Index = ()=> {
        const handleDownload = (e)=>{
           e.preventDefault();
   
-          setIsLoading(true)
+          setIsLoading(true);
+          setUninstall('');
   
-          console.log('clicked')
   
           let userdata = {
               roles:selectedRole
@@ -187,7 +187,7 @@ const Index = ()=> {
 
         setAppRender(true);
         setIsLoading(true)
-
+        setErrorMessage('');
 
 
         let userdata = {
@@ -213,9 +213,10 @@ const Index = ()=> {
         })
         .catch((error) => {
         console.error(error);
+        setIsLoading(false);
         setUninstall('Uninstallation Failed')
         // setErrorMessage('Installation Failed')
-        // setIsLoading(false)
+        
         
         });
 
@@ -250,7 +251,7 @@ const Index = ()=> {
   
       if(isLoading){
           return(
-              <Box sx={{ display: 'flex' }}>
+              <Box sx={{ display: 'flex',mt:4 }}>
                   <CircularProgress />
               </Box>
           )
@@ -259,15 +260,6 @@ const Index = ()=> {
   
     }
   
-
-
-
-
-
-
-
-
-
 
 
 
@@ -309,7 +301,7 @@ const Index = ()=> {
             {/* <button className="mb-8 ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded" onClick={handleDownload}>Install all</button> */}
             {loadingCircle()}
             {errorMessage && <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{errorMessage}</p>}
-            {uninstall === 'Successfully Uninstall'? <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{uninstall}</p> : uninstall === 'Uninstallation Failed'? <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{uninstall}</p>:''}
+            {uninstall === 'Successfully Uninstall' ? <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{uninstall}</p> : uninstall === 'Uninstallation Failed'? <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{uninstall}</p>:''}
           </div>
         </div>
           <ul>

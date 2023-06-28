@@ -23,6 +23,15 @@ import Icon from "@mui/material/Icon";
 const routes = [
   {
     type: "collapse",
+    name: "OneClickSetup",
+    key: "oneclick",
+    route: "/oneclicksetup/",
+    icon: <Icon fontSize="small">assignment</Icon>,
+    component: <Role />,
+  },
+
+  {
+    type: "collapse",
     name: "Dashboard",
     key: "dashboard",
     icon: <Icon fontSize="small">dashboard</Icon>,
@@ -91,16 +100,8 @@ const routes = [
     key: "welcome_page",
     route: "/authentication/welcome",
     component: <Welcomepage />,
-  },
-  {
-    type: "collapse",
-    name: "OneClickSetup",
-    key: "welcome_page",
-    route: "/oneclicksetup/",
-    icon: <Icon fontSize="small">assignment</Icon>,
-    component: <Role />,
   }
-
+ 
 ];
 
 export default routes;

@@ -41,7 +41,7 @@ import Fab from '@mui/material/Fab';
 import NavigationIcon from '@mui/icons-material/Navigation';
 // import { Rotate90DegreesCcw } from '@mui/icons-material';
 
-
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
 
 
@@ -265,7 +265,7 @@ const Index = ()=> {
 
   return (
     <DashboardLayout>
-
+        <DashboardNavbar />
    <Toolsforrole />
    <MDBox mt={6} mb={3}>
     {/* <Grid container spacing={1} justifyContent="space-around"> */}

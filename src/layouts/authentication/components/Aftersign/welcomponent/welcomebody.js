@@ -258,10 +258,10 @@ const handleClickInfo = () => {
 
       </div>
       <div className='flex justify-flex start text-center flex-col mt-[-150px]'>
-      <h2 className = ' md:text-2xl mx-auto text-center flex flex-col justify-center'>Here's a quick tutorial on how to use our site for New Users </h2>
+      <h2 className = ' md:text-2xl mx-auto text-center flex flex-col justify-center mb-3'>Steps to be followed by NEW USER </h2>
 
       <div>
-        <button className='bg-[#0082df] hover:bg-violet-600  w-[100px] rounded-md font-medium mx-3 text-white mt-1' onClick={handleClickInfo}>Info</button>
+        <button className='bg-[#0082df] hover:bg-violet-600  w-[100px] rounded-md font-medium mx-3 text-white mt-1' onClick={handleClickInfo}>Click here</button>
         <BootstrapDialog
                 onClose={handleCloseInfo}
                 aria-labelledby="customized-dialog-title"

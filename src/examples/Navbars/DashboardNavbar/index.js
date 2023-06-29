@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import * as React from 'react';
+import axios from "axios";
 
 
 import { useNavigate } from "react-router-dom";
@@ -63,24 +64,35 @@ import {
 import image from '../../../assets/images/Pushpeshprofile.jpg'
 
 
+// profile token
+import { useContext } from "react";
+
+import { TokenContext } from "context/TokenContext";
+
+
+
 
 
 
 
 function DashboardNavbar({ absolute, light, isMini }) {
 
+// token handling
+const {token} = useContext(TokenContext);
+
+
 
 
 
 // handleprofileicon
-
-
 const [anchorEl, setAnchorEl] = React.useState(null);
 const [profilename,setProfileName] = useState('plodiwal')
 
+const [emailAddress,setEmailAddress] = useState('plodiwal@gmail.com')
+
+
 
 // setProfileName(sessionStorage.getItem('username'))
-
 
 
   const handleClick = (event) => {
@@ -93,6 +105,31 @@ const [profilename,setProfileName] = useState('plodiwal')
 
   const open = Boolean(anchorEl);
   const id = open ? 'profile-dialog' : undefined;
+
+
+
+// importing profilename from axios
+
+axios
+.post('http://localhost:8000/get_profile/',{
+    headers:{
+        'Authorization': `Bearer ${token}`
+    }
+})
+.then((response) => {
+  let {username,email} = response.data;
+  setProfileName(username);
+  setEmailAddress(email);
+  
+
+
+  
+})
+.catch((error) => {
+  console.error(error);
+  setProfileName('plodiwal');
+  setEmailAddress('plodiwal@gmail.com');
+});
 
 
 
@@ -241,10 +278,10 @@ const [profilename,setProfileName] = useState('plodiwal')
                      
                     />
                     <Typography variant="h6" component="div"className="text-xl text-center font-semibold mb-2" >
-                     plodiwal
+                     {profilename}
                     </Typography>
                     <Typography class="text-center text-sm">
-                      plodiwal@gmail.com
+                      {emailAddress}
                     </Typography>
                     <Link to ='/authentication/sign-in'>
                       <Button onClick={handleClose} color="secondary" sx={{ mt: 2 }}>

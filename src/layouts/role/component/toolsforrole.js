@@ -393,6 +393,974 @@
 
 
 
+// radiorole with image
+
+// import React, { useState } from 'react';
+// import PropTypes from 'prop-types';
+// import SwipeableViews from 'react-swipeable-views';
+// import { useTheme } from '@mui/material/styles';
+// import AppBar from '@mui/material/AppBar';
+// import Tabs from '@mui/material/Tabs';
+// import Tab from '@mui/material/Tab';
+// import Typography from '@mui/material/Typography';
+// import Box from '@mui/material/Box';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFile } from '@fortawesome/free-solid-svg-icons';
+// import VisualCode from '../../../assets/images/icons/flags/visual-studio.png';
+// import Python from '../../../assets/images/icons/flags/python.gif';
+// import Github from '../../../assets/images/icons/flags/github.gif';
+// import Homebrew from '../../../assets/images/icons/flags/homebrew.png';
+
+// import Sublime from '../../../assets/images/icons/flags/sublime.png';
+// import Firefox from '../../../assets/images/icons/flags/firefox.png';
+
+// import Zoom from '../../../assets/images/icons/flags/zoom.png';
+
+// import Slack from '../../../assets/images/icons/flags/slack.png';
+
+// import Djando from '../../../assets/images/icons/flags/django.png';
+// import Cask from '../../../assets/images/icons/flags/homebrewCask.png';
+// import Pycharm from '../../../assets/images/icons/flags/pycharm.gif';
+// import Chrome from '../../../assets/images/icons/flags/chrome.gif';
+
+
+// import DashboardNavbar from "examples/Navbars/DashboardNavbar";
+// import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+
+
+// function TabPanel(props) {
+//   const { children, value, index, ...other } = props;
+
+//   return (
+//     <Typography
+//       component="div"
+//       role="tabpanel"
+//       hidden={value !== index}
+//       id={`action-tabpanel-${index}`}
+//       aria-labelledby={`action-tab-${index}`}
+//       {...other}
+//     >
+//       {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+//     </Typography>
+//   );
+// }
+
+// TabPanel.propTypes = {
+//   children: PropTypes.node,
+//   index: PropTypes.number.isRequired,
+//   value: PropTypes.number.isRequired,
+// };
+
+// export default function FloatingActionButtonZoom() {
+//   const theme = useTheme();
+//   const [value, setValue] = useState(0);
+//   const [selectedRadio, setSelectedRadio] = useState(null);
+
+//   const handleChange = (event, newValue) => {
+//     setValue(newValue);
+//   };
+
+//   const handleChangeIndex = (index) => {
+//     setValue(index);
+//   };
+
+//   const handleRadioChange = (event) => {
+//     const radioValue = event.target.value;
+//     if (selectedRadio === radioValue) {
+//       setSelectedRadio(null); // Unselect the radio button if it's already selected
+//       setValue(0); // Reset the tab value
+//     } else {
+//       setSelectedRadio(radioValue);
+//       setValue(0); // Reset the tab value
+//     }
+//   };
+
+//   const frontendApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//   ];
+//   const backendApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//     { name: 'Sublime Text', image: Sublime },
+//     { name: 'Firefox', image: Firefox },
+//     { name: 'Zoom', image: Zoom },
+//     { name: 'Slack', image: Slack },
+//     { name: 'Django', image: Djando },
+//     {    name: 'Python', image: Python },
+//     { name: 'Homebrew Cask', image: Cask },
+//     { name: 'PyCharm', image: Pycharm },
+//     { name: 'Chrome', image: Chrome },
+//   ];
+//   const dataScienceApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//     { name: 'Python', image: Python },
+//   ];
+
+//   let appsToShow = [];
+
+//   if (selectedRadio === 'frontend') {
+//     appsToShow = frontendApps;
+//   } else if (selectedRadio === 'backend') {
+//     appsToShow = backendApps;
+//   } else if (selectedRadio === 'datascience') {
+//     appsToShow = dataScienceApps;
+//   }
+
+//   return (
+//     // <DashboardLayout>
+//       <> 
+//     <h1 class='font-semibold mb-4'>Role category</h1>
+//     <Box
+//       sx={{
+//         bgcolor: 'background.paper',
+//         width: 500,
+//         position: 'relative',
+//         minHeight: 200,
+       
+//       }}
+//     >
+        
+//       <div className="flex items-center gap-4 p-4">
+//         <input
+//           type="radio"
+//           id="frontend"
+//           name="appCategory"
+//           value="frontend"
+//           checked={selectedRadio === 'frontend'}
+//           onChange={handleRadioChange}
+//           className="mr-2"
+//         />
+//         <label htmlFor="frontend" className="cursor-pointer">
+//           Frontend
+//         </label>
+//         <input
+//           type="radio"
+//           id="backend"
+//           name="appCategory"
+//           value="backend"
+//           checked={selectedRadio === 'backend'}
+//           onChange={handleRadioChange}
+//           className="mr-2"
+//         />
+//         <label htmlFor="backend" className="cursor-pointer">
+//           Backend
+//         </label>
+//         <input
+//           type="radio"
+//           id="datascience"
+//           name="appCategory"
+//           value="datascience"
+//           checked={selectedRadio === 'datascience'}
+//           onChange={handleRadioChange}
+//           className="mr-2"
+//         />
+//         <label htmlFor="datascience" className="cursor-pointer">
+//           Data Science
+//         </label>
+//       </div>
+//       {selectedRadio ? (
+//         <>
+//           <AppBar position="static" color="default">
+//             <Tabs
+//               value={value}
+//               onChange={handleChange}
+//               indicatorColor="primary"
+//               textColor="primary"
+//               variant="fullWidth"
+//               aria-label="action tabs example"
+//             >
+//               <Tab label="Apps" />
+//             </Tabs>
+//           </AppBar>
+//           <SwipeableViews
+//             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+//             index={value}
+//             onChangeIndex={handleChangeIndex}
+//           >
+//             <TabPanel value={value} index={0} dir={theme.direction}>
+//               {appsToShow.map((app, index) => (
+//                 <div key={index} className="flex items-center gap-4 p-2">
+//                   <img src={app.image} alt={app.name} className="h-8 w-8" />
+//                   <span>{app.name}</span>
+//                 </div>
+//               ))}
+//             </TabPanel>
+//           </SwipeableViews>
+//         </>
+//       ) : (
+//         <Typography
+//           component="div"
+//           role="tabpanel"
+//           hidden={false}
+//           id="initial-message"
+//           aria-labelledby="initial-message"
+//           className="p-4 text-center"
+//         >
+//           <Box>Get info relative to Your role</Box>
+//         </Typography>
+//       )}
+//     </Box>
+//     </> 
+    
+//     // </DashboardLayout>
+//   );
+// }
+
+
+
+
+// with dialog box
+
+// import React, { useState } from 'react';
+// import PropTypes from 'prop-types';
+// import SwipeableViews from 'react-swipeable-views';
+// import { useTheme } from '@mui/material/styles';
+// import AppBar from '@mui/material/AppBar';
+// import Tabs from '@mui/material/Tabs';
+// import Tab from '@mui/material/Tab';
+// import Typography from '@mui/material/Typography';
+// import Box from '@mui/material/Box';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFile } from '@fortawesome/free-solid-svg-icons';
+// import VisualCode from '../../../assets/images/icons/flags/visual-studio.png';
+// import Python from '../../../assets/images/icons/flags/python.gif';
+// import Github from '../../../assets/images/icons/flags/github.gif';
+// import Homebrew from '../../../assets/images/icons/flags/homebrew.png';
+
+// import Sublime from '../../../assets/images/icons/flags/sublime.png';
+// import Firefox from '../../../assets/images/icons/flags/firefox.png';
+
+// import Zoom from '../../../assets/images/icons/flags/zoom.png';
+
+// import Slack from '../../../assets/images/icons/flags/slack.png';
+
+// import Djando from '../../../assets/images/icons/flags/django.png';
+// import Cask from '../../../assets/images/icons/flags/homebrewCask.png';
+// import Pycharm from '../../../assets/images/icons/flags/pycharm.gif';
+// import Chrome from '../../../assets/images/icons/flags/chrome.gif';
+
+// import Dialog from '@mui/material/Dialog';
+// import DialogTitle from '@mui/material/DialogTitle';
+// import DialogContent from '@mui/material/DialogContent';
+// import DialogActions from '@mui/material/DialogActions';
+// import Button from '@mui/material/Button';
+
+// function TabPanel(props) {
+//   const { children, value, index, ...other } = props;
+
+//   return (
+//     <Typography
+//       component="div"
+//       role="tabpanel"
+//       hidden={value !== index}
+//       id={`action-tabpanel-${index}`}
+//       aria-labelledby={`action-tab-${index}`}
+//       {...other}
+//     >
+//       {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+//     </Typography>
+//   );
+// }
+
+// TabPanel.propTypes = {
+//   children: PropTypes.node,
+//   index: PropTypes.number.isRequired,
+//   value: PropTypes.number.isRequired,
+// };
+
+// export default function FloatingActionButtonZoom() {
+//   const theme = useTheme();
+//   const [value, setValue] = useState(0);
+//   const [selectedRadio, setSelectedRadio] = useState(null);
+//   const [openDialog, setOpenDialog] = useState(false);
+//   const [selectedApp, setSelectedApp] = useState(null);
+
+//   const handleChange = (event, newValue) => {
+//     setValue(newValue);
+//   };
+
+//   const handleChangeIndex = (index) => {
+//     setValue(index);
+//   };
+
+//   const handleRadioChange = (event) => {
+//     const radioValue = event.target.value;
+//     if (selectedRadio === radioValue) {
+//       setSelectedRadio(null);
+//       setValue(0);
+//     } else {
+//       setSelectedRadio(radioValue);
+//       setValue(0);
+//     }
+//   };
+
+//   const frontendApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//   ];
+
+//   const backendApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//     { name: 'Sublime Text', image: Sublime },
+//     { name: 'Firefox', image: Firefox },
+//     { name: 'Zoom', image: Zoom },
+//     { name: 'Slack', image: Slack },
+//     { name: 'Django', image: Djando },
+//     { name: 'Python', image: Python },
+//     { name: 'Homebrew Cask', image: Cask },
+//     { name: 'PyCharm', image: Pycharm },
+//     { name: 'Chrome', image: Chrome },
+//   ];
+
+//   const dataScienceApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//     { name: 'Python', image: Python },
+//   ];
+
+//   let appsToShow = [];
+
+//   if (selectedRadio === 'frontend') {
+//     appsToShow = frontendApps;
+//   } else if (selectedRadio === 'backend') {
+//     appsToShow = backendApps;
+//   } else if (selectedRadio === 'datascience') {
+//     appsToShow = dataScienceApps;
+//   }
+
+//   const handleOpenDialog = (app) => {
+//     setSelectedApp(app);
+//     setOpenDialog(true);
+//   };
+
+//   const handleCloseDialog = () => {
+//     setOpenDialog(false);
+//   };
+
+//   return (
+//     <>
+//       <h1 class='font-semibold mb-4'>Role category</h1>
+//       <Box
+//         sx={{
+//           bgcolor: 'background.paper',
+//           width: 500,
+//           position: 'relative',
+//           minHeight: 200,
+//         }}
+//       >
+//         <div className="flex items-center gap-4 p-4">
+//           <input
+//             type="radio"
+//             id="frontend"
+//             name="appCategory"
+//             value="frontend"
+//             checked={selectedRadio === 'frontend'}
+//             onChange={handleRadioChange}
+//             className="mr-2"
+//           />
+//           <label htmlFor="frontend" className="cursor-pointer">
+//             Frontend
+//           </label>
+//           <input
+//             type="radio"
+//             id="backend"
+//             name="appCategory"
+//             value="backend"
+//             checked={selectedRadio === 'backend'}
+//             onChange={handleRadioChange}
+//             className="mr-2"
+//           />
+//           <label htmlFor="backend" className="cursor-pointer">
+//             Backend
+//           </label>
+//           <input
+//             type="radio"
+//             id="datascience"
+//             name="appCategory"
+//             value="datascience"
+//             checked={selectedRadio === 'datascience'}
+//             onChange={handleRadioChange}
+//             className="mr-2"
+//           />
+//           <label htmlFor="datascience" className="cursor-pointer">
+//             Data Science
+//           </label>
+//         </div>
+//         {selectedRadio ? (
+//           <>
+//             <AppBar position="static" color="default">
+//               <Tabs
+//                 value={value}
+//                 onChange={handleChange}
+//                 indicatorColor="primary"
+//                 textColor="primary"
+//                 variant="fullWidth"
+//                 aria-label="action tabs example"
+//               >
+//                 <Tab label="Apps" />
+//               </Tabs>
+//             </AppBar>
+//             <SwipeableViews
+//               axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+//               index={value}
+//               onChangeIndex={handleChangeIndex}
+//             >
+//               <TabPanel value={value} index={0} dir={theme.direction}>
+//                 {appsToShow.map((app, index) => (
+//                   <div
+//                     key={index}
+//                     className="flex items-center gap-4 p-2"
+//                     onClick={() => handleOpenDialog(app)}
+//                   >
+//                     <img src={app.image} alt={app.name} className="h-8 w-8" />
+//                     <span>{app.name}</span>
+//                   </div>
+//                 ))}
+//               </TabPanel>
+//             </SwipeableViews>
+//           </>
+//         ) : (
+//           <Typography
+//             component="div"
+//             role="tabpanel"
+//             hidden={false}
+//             id="initial-message"
+//             aria-labelledby="initial-message"
+//             className="p-4 text-center"
+//           >
+//             <Box>Get info relative to Your role</Box>
+//           </Typography>
+//         )}
+//       </Box>
+
+//       {/* Dialog */}
+//       <Dialog open={openDialog} onClose={handleCloseDialog}>
+//         <DialogTitle>{selectedApp && selectedApp.name}</DialogTitle>
+//         <DialogContent>
+//           {/* Add the content for the dialog here */}
+//           <p>Dialog content goes here...</p>
+//         </DialogContent>
+//         <DialogActions>
+//           <Button onClick={handleCloseDialog}>Close</Button>
+//         </DialogActions>
+//       </Dialog>
+//     </>
+//   );
+// }
+
+
+
+
+// dialog box with cursor pointer in middle 
+
+// import React, { useState } from 'react';
+// import PropTypes from 'prop-types';
+// import SwipeableViews from 'react-swipeable-views';
+// import { useTheme } from '@mui/material/styles';
+// import AppBar from '@mui/material/AppBar';
+// import Tabs from '@mui/material/Tabs';
+// import Tab from '@mui/material/Tab';
+// import Typography from '@mui/material/Typography';
+// import Box from '@mui/material/Box';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFile } from '@fortawesome/free-solid-svg-icons';
+// import VisualCode from '../../../assets/images/icons/flags/visual-studio.png';
+// import Python from '../../../assets/images/icons/flags/python.gif';
+// import Github from '../../../assets/images/icons/flags/github.gif';
+// import Homebrew from '../../../assets/images/icons/flags/homebrew.png';
+
+// import Sublime from '../../../assets/images/icons/flags/sublime.png';
+// import Firefox from '../../../assets/images/icons/flags/firefox.png';
+
+// import Zoom from '../../../assets/images/icons/flags/zoom.png';
+
+// import Slack from '../../../assets/images/icons/flags/slack.png';
+
+// import Djando from '../../../assets/images/icons/flags/django.png';
+// import Cask from '../../../assets/images/icons/flags/homebrewCask.png';
+// import Pycharm from '../../../assets/images/icons/flags/pycharm.gif';
+// import Chrome from '../../../assets/images/icons/flags/chrome.gif';
+
+// import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
+// import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
+
+// import Dialog from '@mui/material/Dialog';
+// import DialogTitle from '@mui/material/DialogTitle';
+// import DialogContent from '@mui/material/DialogContent';
+// import DialogActions from '@mui/material/DialogActions';
+// import Button from '@mui/material/Button';
+
+// function TabPanel(props) {
+//   const { children, value, index, ...other } = props;
+
+//   return (
+//     <Typography
+//       component="div"
+//       role="tabpanel"
+//       hidden={value !== index}
+//       id={`action-tabpanel-${index}`}
+//       aria-labelledby={`action-tab-${index}`}
+//       {...other}
+//     >
+//       {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+//     </Typography>
+//   );
+// }
+
+// TabPanel.propTypes = {
+//   children: PropTypes.node,
+//   index: PropTypes.number.isRequired,
+//   value: PropTypes.number.isRequired,
+// };
+
+// export default function FloatingActionButtonZoom() {
+//   const theme = useTheme();
+//   const [value, setValue] = useState(0);
+//   const [selectedRadio, setSelectedRadio] = useState(null);
+//   const [openDialog, setOpenDialog] = useState(false);
+//   const [selectedApp, setSelectedApp] = useState(null);
+
+//   const handleChange = (event, newValue) => {
+//     setValue(newValue);
+//   };
+
+//   const handleChangeIndex = (index) => {
+//     setValue(index);
+//   };
+
+//   const handleRadioChange = (event) => {
+//     const radioValue = event.target.value;
+//     if (selectedRadio === radioValue) {
+//       setSelectedRadio(null); // Unselect the radio button if it's already selected
+//       setValue(0); // Reset the tab value
+//     } else {
+//       setSelectedRadio(radioValue);
+//       setValue(0); // Reset the tab value
+//     }
+//   };
+
+//   const frontendApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//   ];
+//   const backendApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//     { name: 'Sublime Text', image: Sublime },
+//     { name: 'Firefox', image: Firefox },
+//     { name: 'Zoom', image: Zoom },
+//     { name: 'Slack', image: Slack },
+//     { name: 'Django', image: Djando },
+//     { name: 'Python', image: Python },
+//     { name: 'Homebrew Cask', image: Cask },
+//     { name: 'PyCharm', image: Pycharm },
+//     { name: 'Chrome', image: Chrome },
+//   ];
+//   const dataScienceApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//     { name: 'Python', image: Python },
+//   ];
+
+//   let appsToShow = [];
+
+//   if (selectedRadio === 'frontend') {
+//     appsToShow = frontendApps;
+//   } else if (selectedRadio === 'backend') {
+//     appsToShow = backendApps;
+//   } else if (selectedRadio === 'datascience') {
+//     appsToShow = dataScienceApps;
+//   }
+
+//   const handleOpenDialog = (app) => {
+//     setSelectedApp(app);
+//     setOpenDialog(true);
+//   };
+
+//   const handleCloseDialog = () => {
+//     setOpenDialog(false);
+//   };
+
+//   return (
+//     <>
+//       <h1 className="font-semibold mb-4">Role category</h1>
+//       <Box
+//         sx={{
+//           bgcolor: 'background.paper',
+//           width: 500,
+//           position: 'relative',
+//           minHeight: 200,
+//         }}
+//       >
+//         <div className="flex items-center gap-4 p-4">
+//           <input
+//             type="radio"
+//             id="frontend"
+//             name="appCategory"
+//             value="frontend"
+//             checked={selectedRadio === 'frontend'}
+//             onChange={handleRadioChange}
+//             className="mr-2"
+//           />
+//           <label htmlFor="frontend" className="cursor-pointer">
+//             Frontend
+//           </label>
+//           <input
+//             type="radio"
+//             id="backend"
+//             name="appCategory"
+//             value="backend"
+//             checked={selectedRadio === 'backend'}
+//             onChange={handleRadioChange}
+//             className="mr-2"
+//           />
+//           <label htmlFor="backend" className="cursor-pointer">
+//             Backend
+//           </label>
+//           <input
+//             type="radio"
+//             id="datascience"
+//             name="appCategory"
+//             value="datascience"
+//             checked={selectedRadio === 'datascience'}
+//             onChange={handleRadioChange}
+//             className="mr-2"
+//           />
+//           <label htmlFor="datascience" className="cursor-pointer">
+//             Data Science
+//           </label>
+//         </div>
+//         {selectedRadio ? (
+//           <>
+//             <AppBar position="static" color="default">
+//               <Tabs
+//                 value={value}
+//                 onChange={handleChange}
+//                 indicatorColor="primary"
+//                 textColor="primary"
+//                 variant="fullWidth"
+//                 aria-label="action tabs example"
+//               >
+//                 <Tab label="Apps" />
+//               </Tabs>
+//             </AppBar>
+//             <SwipeableViews
+//               axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+//               index={value}
+//               onChangeIndex={handleChangeIndex}
+//             >
+//               <TabPanel value={value} index={0} dir={theme.direction}>
+//                 {appsToShow.map((app, index) => (
+//                   <div
+//                     key={index}
+//                     className="flex items-center gap-4 p-2"
+//                     onClick={() => handleOpenDialog(app)}
+//                     style={{ cursor: 'pointer' }}
+//                   >
+//                     <img src={app.image} alt={app.name} className="h-8 w-8" />
+//                     <span>{app.name}</span>
+//                   </div>
+//                 ))}
+//               </TabPanel>
+//             </SwipeableViews>
+//           </>
+//         ) : (
+//           <Typography
+//             component="div"
+//             role="tabpanel"
+//             hidden={false}
+//             id="initial-message"
+//             aria-labelledby="initial-message"
+//             className="p-4 text-center"
+//           >
+//             <Box>Get info relative to Your role</Box>
+//           </Typography>
+//         )}
+//       </Box>
+
+//       <Dialog
+//         open={openDialog}
+//         onClose={handleCloseDialog}
+//         aria-labelledby="app-dialog-title"
+//       >
+//         <DialogTitle id="app-dialog-title">{selectedApp?.name}</DialogTitle>
+//         <DialogContent>
+//           {/* Replace this with your dialog content */}
+//           <Typography>
+//             This is the dialog content for {selectedApp?.name}.
+//           </Typography>
+//         </DialogContent>
+//         <DialogActions>
+//           <Button onClick={handleCloseDialog} color="primary">
+//             Close
+//           </Button>
+//         </DialogActions>
+//       </Dialog>
+//     </>
+//   );
+// }
+
+
+
+
+// div box at right side
+
+// import React, { useState } from 'react';
+// import PropTypes from 'prop-types';
+// import SwipeableViews from 'react-swipeable-views';
+// import { useTheme } from '@mui/material/styles';
+// import AppBar from '@mui/material/AppBar';
+// import Tabs from '@mui/material/Tabs';
+// import Tab from '@mui/material/Tab';
+// import Typography from '@mui/material/Typography';
+// import Box from '@mui/material/Box';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFile } from '@fortawesome/free-solid-svg-icons';
+// import VisualCode from '../../../assets/images/icons/flags/visual-studio.png';
+// import Python from '../../../assets/images/icons/flags/python.gif';
+// import Github from '../../../assets/images/icons/flags/github.gif';
+// import Homebrew from '../../../assets/images/icons/flags/homebrew.png';
+
+// import Sublime from '../../../assets/images/icons/flags/sublime.png';
+// import Firefox from '../../../assets/images/icons/flags/firefox.png';
+
+// import Zoom from '../../../assets/images/icons/flags/zoom.png';
+
+// import Slack from '../../../assets/images/icons/flags/slack.png';
+
+// import Djando from '../../../assets/images/icons/flags/django.png';
+// import Cask from '../../../assets/images/icons/flags/homebrewCask.png';
+// import Pycharm from '../../../assets/images/icons/flags/pycharm.gif';
+// import Chrome from '../../../assets/images/icons/flags/chrome.gif';
+
+// import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
+// import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
+
+// function TabPanel(props) {
+//   const { children, value, index, ...other } = props;
+
+//   return (
+//     <Typography
+//       component="div"
+//       role="tabpanel"
+//       hidden={value !== index}
+//       id={`action-tabpanel-${index}`}
+//       aria-labelledby={`action-tab-${index}`}
+//       {...other}
+//     >
+//       {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+//     </Typography>
+//   );
+// }
+
+// TabPanel.propTypes = {
+//   children: PropTypes.node,
+//   index: PropTypes.number.isRequired,
+//   value: PropTypes.number.isRequired,
+// };
+
+// export default function FloatingActionButtonZoom() {
+//   const theme = useTheme();
+//   const [value, setValue] = useState(0);
+//   const [selectedRadio, setSelectedRadio] = useState(null);
+//   const [selectedApp, setSelectedApp] = useState(null);
+//   const [openContainer, setOpenContainer] = useState(false);
+
+//   const handleChange = (event, newValue) => {
+//     setValue(newValue);
+//   };
+
+//   const handleChangeIndex = (index) => {
+//     setValue(index);
+//   };
+
+//   const handleRadioChange = (event) => {
+//     const radioValue = event.target.value;
+//     if (selectedRadio === radioValue) {
+//       setSelectedRadio(null); // Unselect the radio button if it's already selected
+//       setValue(0); // Reset the tab value
+//     } else {
+//       setSelectedRadio(radioValue);
+//       setValue(0); // Reset the tab value
+//     }
+//   };
+
+//   const frontendApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//   ];
+//   const backendApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//     { name: 'Sublime Text', image: Sublime },
+//     { name: 'Firefox', image: Firefox },
+//     { name: 'Zoom', image: Zoom },
+//     { name: 'Slack', image: Slack },
+//     { name: 'Django', image: Djando },
+//     { name: 'Python', image: Python },
+//     { name: 'Homebrew Cask', image: Cask },
+//     { name: 'PyCharm', image: Pycharm },
+//     { name: 'Chrome', image: Chrome },
+//   ];
+//   const dataScienceApps = [
+//     { name: 'VsCode', image: VisualCode },
+//     { name: 'GitHub', image: Github },
+//     { name: 'Homebrew', image: Homebrew },
+//     { name: 'Python', image: Python },
+//   ];
+
+//   let appsToShow = [];
+
+//   if (selectedRadio === 'frontend') {
+//     appsToShow = frontendApps;
+//   } else if (selectedRadio === 'backend') {
+//     appsToShow = backendApps;
+//   } else if (selectedRadio === 'datascience') {
+//     appsToShow = dataScienceApps;
+//   }
+
+//   const handleAppSelection = (app) => {
+//     setSelectedApp(app);
+//     setOpenContainer(true);
+//   };
+
+//   const handleCloseContainer = () => {
+//     setOpenContainer(false);
+//   };
+
+//   return (
+//     <>
+      
+//         <h1 className="font-semibold mb-4">Role category</h1>
+//         <Box
+//           sx={{
+//             bgcolor: 'background.paper',
+//             width: 500,
+//             position: 'relative',
+//             minHeight: 200,
+//           }}
+//         >
+//           <div className="flex items-center gap-4 p-4">
+//             <input
+//               type="radio"
+//               id="frontend"
+//               name="appCategory"
+//               value="frontend"
+//               checked={selectedRadio === 'frontend'}
+//               onChange={handleRadioChange}
+//               className="mr-2"
+//             />
+//             <label htmlFor="frontend" className="cursor-pointer">
+//               Frontend
+//             </label>
+//             <input
+//               type="radio"
+//               id="backend"
+//               name="appCategory"
+//               value="backend"
+//               checked={selectedRadio === 'backend'}
+//               onChange={handleRadioChange}
+//               className="mr-2"
+//             />
+//             <label htmlFor="backend" className="cursor-pointer">
+//               Backend
+//             </label>
+//             <input
+//               type="radio"
+//               id="datascience"
+//               name="appCategory"
+//               value="datascience"
+//               checked={selectedRadio === 'datascience'}
+//               onChange={handleRadioChange}
+//               className="mr-2"
+//             />
+//             <label htmlFor="datascience" className="cursor-pointer">
+//               Data Science
+//             </label>
+//           </div>
+//           {selectedRadio ? (
+//             <>
+//               <AppBar position="static" color="default">
+//                 <Tabs
+//                   value={value}
+//                   onChange={handleChange}
+//                   indicatorColor="primary"
+//                   textColor="primary"
+//                   variant="fullWidth"
+//                   aria-label="action tabs example"
+//                 >
+//                   <Tab label="Apps" />
+//                 </Tabs>
+//               </AppBar>
+//               <SwipeableViews
+//                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+//                 index={value}
+//                 onChangeIndex={handleChangeIndex}
+//               >
+//                 <TabPanel value={value} index={0} dir={theme.direction}>
+//                   {appsToShow.map((app, index) => (
+//                     <div
+//                       key={index}
+//                       className="flex items-center gap-4 p-2 cursor-pointer"
+//                       onClick={() => handleAppSelection(app)}
+//                     >
+//                       <img src={app.image} alt={app.name} className="h-8 w-8" />
+//                       <span>{app.name}</span>
+//                     </div>
+//                   ))}
+//                 </TabPanel>
+//               </SwipeableViews>
+//             </>
+//           ) : (
+//             <Typography
+//               component="div"
+//               role="tabpanel"
+//               hidden={false}
+//               id="initial-message"
+//               aria-labelledby="initial-message"
+//               className="p-4 text-center"
+//             >
+//               <Box>Get info relative to Your role</Box>
+//             </Typography>
+//           )}
+//           {openContainer && selectedApp && (
+//             <div className="absolute top-0 right-0 bg-gray-200 h-full w-80 p-4">
+//               {/* Your content inside the container */}
+//               <h2 className="text-lg font-semibold mb-4">App Information</h2>
+//               <div className="flex items-center gap-4">
+//                 <img src={selectedApp.image} alt={selectedApp.name} className="h-8 w-8" />
+//                 <span>{selectedApp.name}</span>
+//               </div>
+//               <p className="mt-2">Some additional information about the selected app.</p>
+//               <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+//                 Open App
+//               </button>
+//               <button className="mt-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+//                 Close Container
+//               </button>
+//             </div>
+//           )}
+//         </Box>
+      
+//     </>
+//   );
+// }
+
+
 
 
 import React, { useState } from 'react';
@@ -410,23 +1378,16 @@ import VisualCode from '../../../assets/images/icons/flags/visual-studio.png';
 import Python from '../../../assets/images/icons/flags/python.gif';
 import Github from '../../../assets/images/icons/flags/github.gif';
 import Homebrew from '../../../assets/images/icons/flags/homebrew.png';
-
 import Sublime from '../../../assets/images/icons/flags/sublime.png';
 import Firefox from '../../../assets/images/icons/flags/firefox.png';
-
 import Zoom from '../../../assets/images/icons/flags/zoom.png';
-
 import Slack from '../../../assets/images/icons/flags/slack.png';
-
 import Djando from '../../../assets/images/icons/flags/django.png';
 import Cask from '../../../assets/images/icons/flags/homebrewCask.png';
 import Pycharm from '../../../assets/images/icons/flags/pycharm.gif';
 import Chrome from '../../../assets/images/icons/flags/chrome.gif';
-
-
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -455,6 +1416,8 @@ export default function FloatingActionButtonZoom() {
   const theme = useTheme();
   const [value, setValue] = useState(0);
   const [selectedRadio, setSelectedRadio] = useState(null);
+  const [selectedApp, setSelectedApp] = useState(null);
+  const [openContainer, setOpenContainer] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -489,7 +1452,7 @@ export default function FloatingActionButtonZoom() {
     { name: 'Zoom', image: Zoom },
     { name: 'Slack', image: Slack },
     { name: 'Django', image: Djando },
-    {    name: 'Python', image: Python },
+    { name: 'Python', image: Python },
     { name: 'Homebrew Cask', image: Cask },
     { name: 'PyCharm', image: Pycharm },
     { name: 'Chrome', image: Chrome },
@@ -511,102 +1474,151 @@ export default function FloatingActionButtonZoom() {
     appsToShow = dataScienceApps;
   }
 
+  const handleAppClick = (app) => {
+    setSelectedApp(app);
+    setOpenContainer(true);
+  };
+
+  const handleCloseContainer = () => {
+    setOpenContainer(false);
+  };
+
   return (
-    // <DashboardLayout>
-      <> 
-    <h1 class='font-semibold mb-4'>Role category</h1>
-    <Box
-      sx={{
-        bgcolor: 'background.paper',
-        width: 500,
-        position: 'relative',
-        minHeight: 200,
-       
-      }}
-    >
-        
-      <div className="flex items-center gap-4 p-4">
-        <input
-          type="radio"
-          id="frontend"
-          name="appCategory"
-          value="frontend"
-          checked={selectedRadio === 'frontend'}
-          onChange={handleRadioChange}
-          className="mr-2"
-        />
-        <label htmlFor="frontend" className="cursor-pointer">
-          Frontend
-        </label>
-        <input
-          type="radio"
-          id="backend"
-          name="appCategory"
-          value="backend"
-          checked={selectedRadio === 'backend'}
-          onChange={handleRadioChange}
-          className="mr-2"
-        />
-        <label htmlFor="backend" className="cursor-pointer">
-          Backend
-        </label>
-        <input
-          type="radio"
-          id="datascience"
-          name="appCategory"
-          value="datascience"
-          checked={selectedRadio === 'datascience'}
-          onChange={handleRadioChange}
-          className="mr-2"
-        />
-        <label htmlFor="datascience" className="cursor-pointer">
-          Data Science
-        </label>
-      </div>
-      {selectedRadio ? (
-        <>
-          <AppBar position="static" color="default">
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              variant="fullWidth"
-              aria-label="action tabs example"
-            >
-              <Tab label="Apps" />
-            </Tabs>
-          </AppBar>
-          <SwipeableViews
-            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-            index={value}
-            onChangeIndex={handleChangeIndex}
-          >
-            <TabPanel value={value} index={0} dir={theme.direction}>
-              {appsToShow.map((app, index) => (
-                <div key={index} className="flex items-center gap-4 p-2">
-                  <img src={app.image} alt={app.name} className="h-8 w-8" />
-                  <span>{app.name}</span>
-                </div>
-              ))}
-            </TabPanel>
-          </SwipeableViews>
-        </>
-      ) : (
-        <Typography
-          component="div"
-          role="tabpanel"
-          hidden={false}
-          id="initial-message"
-          aria-labelledby="initial-message"
-          className="p-4 text-center"
-        >
-          <Box>Get info relative to Your role</Box>
-        </Typography>
-      )}
-    </Box>
-    </> 
     
-    // </DashboardLayout>
+      <>
+      <h1 className="font-semibold mb-4">Role category</h1>
+      <div className="flex flex-row gap-8 ">
+        
+        <Box
+          sx={{
+            bgcolor: 'background.paper',
+            width: 500,
+            position: 'relative',
+            minHeight: 200,
+            borderRadius:2,
+          }}
+        >
+          <div className="flex items-center gap-4 p-4">
+            <input
+              type="radio"
+              id="frontend"
+              name="appCategory"
+              value="frontend"
+              checked={selectedRadio === 'frontend'}
+              onChange={handleRadioChange}
+              className="mr-2"
+            />
+            <label htmlFor="frontend" className="cursor-pointer">
+              Frontend
+            </label>
+            <input
+              type="radio"
+              id="backend"
+              name="appCategory"
+              value="backend"
+              checked={selectedRadio === 'backend'}
+              onChange={handleRadioChange}
+              className="mr-2"
+            />
+            <label htmlFor="backend" className="cursor-pointer">
+              Backend
+            </label>
+            <input
+              type="radio"
+              id="datascience"
+              name="appCategory"
+              value="datascience"
+              checked={selectedRadio === 'datascience'}
+              onChange={handleRadioChange}
+              className="mr-2"
+            />
+            <label htmlFor="datascience" className="cursor-pointer">
+              Data Science
+            </label>
+          </div>
+          {selectedRadio ? (
+            <>
+              <AppBar position="static" color="default">
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  indicatorColor="primary"
+                  textColor="primary"
+                  variant="fullWidth"
+                  aria-label="action tabs example"
+                >
+                  <Tab label="Apps" />
+                </Tabs>
+              </AppBar>
+              <SwipeableViews
+                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                index={value}
+                onChangeIndex={handleChangeIndex}
+              >
+               <TabPanel value={value} index={0} dir={theme.direction}>
+                {appsToShow.map((app, index) => (
+                    <div
+                    key={index}
+                    className="flex items-center gap-4 p-2"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => handleAppClick(app)}
+                    >
+                    <img
+                        src={app.image}
+                        alt={app.name}
+                        className="h-8 w-8"
+                    />
+                    <span>{app.name}</span>
+                    </div>
+                ))}
+                </TabPanel>
+              </SwipeableViews>
+            </>
+          ) : (
+            <Typography
+              component="div"
+              role="tabpanel"
+              hidden={false}
+              id="initial-message"
+              aria-labelledby="initial-message"
+              className="p-4 text-center"
+            >
+              <Box>Get info relative to Your role</Box>
+            </Typography>
+          )}
+        </Box>
+
+
+
+
+
+
+        {openContainer && (
+           
+          <div className="flex flex-col items-center rounded p-4  text-white bg-purple-500 bg-opacity-25  shadow-lg backdrop-blur backdrop-filter border border-purple-500 border-opacity-25">
+            <h2 className="text-2xl font-bold">Selected App</h2>
+            <div className="flex items-center gap-4 mt-2">
+              <img
+                src={selectedApp.image}
+                alt={selectedApp.name}
+                className="h-8 w-8"
+              />
+              <span>{selectedApp.name}</span>
+            </div>
+            <div>njbjhwbfjkwbKJFBkjwfbnknfkwnfk</div>
+            <button
+              className="bg-red-500 text-white px-4 py-2 mt-4"
+              onClick={handleCloseContainer}
+            >
+              Close Container
+            </button>
+          </div>
+         
+        )
+        
+        }
+      </div>
+      </>
+    
   );
 }

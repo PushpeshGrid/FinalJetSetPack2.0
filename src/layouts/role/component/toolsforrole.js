@@ -395,7 +395,6 @@
 
 
 
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
@@ -476,22 +475,31 @@ export default function FloatingActionButtonZoom() {
     }
   };
 
-  const frontendApps = ['VsCode','GitHub','Homebrew'];
-  const backendApps = [
-    'VsCode',
-    'GitHub',
-    'Homebrew',
-    'Sublime Text',
-    'Firefox',
-    'Zoom',
-    'Slack',
-    'Django',
-    'Python',
-    'Homebrew Cask',
-    'PyCharm',
-    'Chrome',
+  const frontendApps = [
+    { name: 'VsCode', image: VisualCode },
+    { name: 'GitHub', image: Github },
+    { name: 'Homebrew', image: Homebrew },
   ];
-  const dataScienceApps = ['VsCode', 'GitHub', 'Homebrew', 'Python'];
+  const backendApps = [
+    { name: 'VsCode', image: VisualCode },
+    { name: 'GitHub', image: Github },
+    { name: 'Homebrew', image: Homebrew },
+    { name: 'Sublime Text', image: Sublime },
+    { name: 'Firefox', image: Firefox },
+    { name: 'Zoom', image: Zoom },
+    { name: 'Slack', image: Slack },
+    { name: 'Django', image: Djando },
+    {    name: 'Python', image: Python },
+    { name: 'Homebrew Cask', image: Cask },
+    { name: 'PyCharm', image: Pycharm },
+    { name: 'Chrome', image: Chrome },
+  ];
+  const dataScienceApps = [
+    { name: 'VsCode', image: VisualCode },
+    { name: 'GitHub', image: Github },
+    { name: 'Homebrew', image: Homebrew },
+    { name: 'Python', image: Python },
+  ];
 
   let appsToShow = [];
 
@@ -576,12 +584,10 @@ export default function FloatingActionButtonZoom() {
           >
             <TabPanel value={value} index={0} dir={theme.direction}>
               {appsToShow.map((app, index) => (
-                <p
-                  key={index}
-                  className="flex items-center gap-4 p-2"
-                >
-                  {app}
-                </p>
+                <div key={index} className="flex items-center gap-4 p-2">
+                  <img src={app.image} alt={app.name} className="h-8 w-8" />
+                  <span>{app.name}</span>
+                </div>
               ))}
             </TabPanel>
           </SwipeableViews>
@@ -600,6 +606,7 @@ export default function FloatingActionButtonZoom() {
       )}
     </Box>
     </> 
+    
     // </DashboardLayout>
   );
 }

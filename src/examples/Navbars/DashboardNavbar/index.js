@@ -110,26 +110,56 @@ const [emailAddress,setEmailAddress] = useState('plodiwal@gmail.com')
 
 // importing profilename from axios
 
-axios
-.post('http://localhost:8000/get_profile/',{
-    headers:{
-        'Authorization': `Bearer ${token}`
-    }
-})
+
+
+let config = {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'http://localhost:8000/get_profile/',
+  headers: {
+    'Authorization': 'Bearer '+token
+  }
+};
+axios.request(config)
 .then((response) => {
-  let {username,email} = response.data;
+  console.log(response.data.data);
+  let {username,email} = response.data.data;
   setProfileName(username);
   setEmailAddress(email);
-  
-
-
-  
 })
 .catch((error) => {
-  console.error(error);
-  setProfileName('plodiwal');
-  setEmailAddress('plodiwal@gmail.com');
+  console.log(error);
 });
+
+
+
+
+
+
+
+
+
+
+// axios
+// .post('http://localhost:8000/get_profile/',{
+//     headers:{
+//         'Authorization': `Bearer ${token}`
+//     }
+// })
+// .then((response) => {
+//   let {username,email} = response.data;
+//   setProfileName(username);
+//   setEmailAddress(email);
+  
+
+
+  
+// })
+// .catch((error) => {
+//   console.error(error);
+//   setProfileName('plodiwal');
+//   setEmailAddress('plodiwal@gmail.com');
+// });
 
 
 

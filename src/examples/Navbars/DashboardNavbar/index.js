@@ -110,59 +110,29 @@ const [emailAddress,setEmailAddress] = useState('plodiwal@gmail.com')
 
 // importing profilename from axios
 
-
-
-let config = {
-  method: 'get',
-  maxBodyLength: Infinity,
-  url: 'http://localhost:8000/get_profile/',
-  headers: {
-    'Authorization': 'Bearer '+token
-  }
-};
-axios.request(config)
+axios
+.post('http://localhost:8000/get_profile/',{
+    headers:{
+        'Authorization': `Bearer ${token}`
+    }
+})
 .then((response) => {
-  console.log(response.data.data);
-  let {username,email} = response.data.data;
+  let {username,email} = response.data;
   setProfileName(username);
   setEmailAddress(email);
+  
+
+
+  
 })
 .catch((error) => {
-  console.log(error);
+  console.error(error);
+  setProfileName('plodiwal');
+  setEmailAddress('plodiwal@gmail.com');
 });
 
 
 //
-
-
-
-
-
-
-
-// axios
-// .post('http://localhost:8000/get_profile/',{
-//     headers:{
-//         'Authorization': `Bearer ${token}`
-//     }
-// })
-// .then((response) => {
-//   let {username,email} = response.data;
-//   setProfileName(username);
-//   setEmailAddress(email);
-  
-
-
-  
-// })
-// .catch((error) => {
-//   console.error(error);
-//   setProfileName('plodiwal');
-//   setEmailAddress('plodiwal@gmail.com');
-// });
-
-
-
 
 // const [anchorEl, setAnchorEl] = useState(null);
 // const navigate = useNavigate()

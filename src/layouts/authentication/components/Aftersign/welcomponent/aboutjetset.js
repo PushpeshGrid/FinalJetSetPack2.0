@@ -61,7 +61,7 @@ const Aboutjetset = () => {
     .then((response) => {
       let data = response.data
       console.log(data)
-      navigate('/oneclicksetup/')
+      navigate('/dashboard/')
     })
     .catch((error) => {
       console.error(error);

@@ -213,53 +213,54 @@ function Dashboard() {
 
 
 
-  const handleSlackClick = () => {
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'http://localhost:8000/set_single_app/Slack',
-      headers: {
-        'Authorization': token
+  const handleSlackClick = async() => {
+    await axios
+    .post('http://localhost:8000/set_single_app/Slack',null, {
+      headers:{
+          Authorization: `Bearer ${token}`
       }
-    };
-    axios.request(config)
+  })
     .then((response) => {
-      console.log((response.data));
-
-           if (response.data.data.Slack === 'Suscessful') {
-            setSlackMessage('Slack Installed');
+      console.log({response})
+      let data=response.data
+      console.log(data);
+        if (response.data.VSCode === 'Suscessful') {
+          setSlackMessage('Slack Installed');
         } else {
           setSlackMessage('Slack Already Exists');
         }
+      
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
+      
     });
   };
 
 
 
 
-  const handleFirefoxClick = () => {
-        let config = {
-          method: 'post',
-          maxBodyLength: Infinity,
-          url: 'http://localhost:8000/set_single_app/Firefox',
-          headers: {
-            'Authorization': token
-          }
-        };
-        axios.request(config)
-        .then((response) => {
-          console.log((response.data));
-              if (response.data.data.Firefox === 'Suscessful') {
-                setFirefoxMessage('Firefox Installed');
-            } else {
-              setFirefoxMessage('Firefox Already Exists');
-            }
+  const handleFirefoxClick = async() => {
+    await axios
+    .post('http://localhost:8000/set_single_app/Firefox',null, {
+      headers:{
+          Authorization: `Bearer ${token}`
+      }
+  })
+    .then((response) => {
+      console.log({response})
+      let data=response.data
+      console.log(data);
+        if (response.data.VSCode === 'Suscessful') {
+          setFirefoxMessage('Firefox Installed');
+        } else {
+          setFirefoxMessage('Firefox Already Exists');
+        }
+      
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
+      
     });
   };
 

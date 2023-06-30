@@ -48,8 +48,6 @@ const Aboutjetset = () => {
     }
 
     
-    
-
     console.log(token);
 
     axios

@@ -69,10 +69,9 @@ export default function data() {
         members: (
           <MDBox display="flex" py={1}>
             {avatars([
-              [team1, "Ryan Tompson"],
-              [team2, "Romina Hadid"],
-              [team3, "Alexander Smith"],
-              [team4, "Jessica Doe"],
+              [team4, "Pushpesh"],
+              [team2, "Riyan"],
+              
             ])}
           </MDBox>
         ),
@@ -94,8 +93,8 @@ export default function data() {
         members: (
           <MDBox display="flex" py={1}>
             {avatars([
-              [team2, "Romina Hadid"],
-              [team4, "Jessica Doe"],
+             [team4, "Pushpesh"],
+             
             ])}
           </MDBox>
         ),
@@ -138,8 +137,7 @@ export default function data() {
             {avatars([
               [team4, "Jessica Doe"],
               [team3, "Alexander Smith"],
-              [team2, "Romina Hadid"],
-              [team1, "Ryan Tompson"],
+              
             ])}
           </MDBox>
         ),
@@ -158,7 +156,7 @@ export default function data() {
         companies: <Company image={logoBackend} name="Backend Developer" />,
         members: (
           <MDBox display="flex" py={1}>
-            {avatars([[team4, "Jessica Doe"]])}
+            {avatars([[team4, "Riyan"]])}
           </MDBox>
         ),
         budget: (

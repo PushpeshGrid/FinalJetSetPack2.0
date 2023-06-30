@@ -51,7 +51,7 @@ function Projects() {
       <MDBox display="flex" justifyContent="space-between" alignItems="center" p={3}>
         <MDBox>
           <MDTypography variant="h6" gutterBottom>
-            Popular Downloads
+            Automate Tools
           </MDTypography>
           <MDBox display="flex" alignItems="center" lineHeight={0}>
             <Icon
@@ -64,7 +64,7 @@ function Projects() {
               done
             </Icon>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              &nbsp;<strong>7 done</strong> this month
+              &nbsp;<strong>6 done</strong>
             </MDTypography>
           </MDBox>
         </MDBox>

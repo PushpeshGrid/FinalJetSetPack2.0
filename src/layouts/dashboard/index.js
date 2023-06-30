@@ -1,3 +1,7 @@
+// importing axios
+import axios from 'axios';
+import { useState } from 'react';
+
 // @mui material components
 import Grid from "@mui/material/Grid";
 
@@ -24,13 +28,75 @@ import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 import AppSelector from "./components/role/clientrole";
 
 function Dashboard() {
+
+
   const { sales, tasks } = reportsLineChartData;
+  const [message, setMessage] = useState('');
 
 
   
+const handleSlackDownload = (e)=>{
+  e.preventDefault();
+  
+
+
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:8000/set_single_app/Slack'
+  };
+  
+  axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+    
+
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
 
 
 
+const handleVscodeDownload =(e)=>{
+  e.preventDefault();
+
+  setMessage('hi')
+  console.log(message)
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'http://localhost:8000/set_single_app/VSCode'
+  };
+  
+  axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
+
+
+
+const handleFirefoxDownload =(e)=>{
+    e.preventDefault();
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://localhost:8000/set_single_app/Firefox'
+    };
+    axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+ 
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -38,38 +104,25 @@ function Dashboard() {
       <MDBox py={3}>
         <Grid container spacing={3}>
 
-          {/* <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5} >
-              <ComplexStatisticsCard
-                color="dark"
-                icon="Data"
-                title="Django"
-                count=''
-                percentage={{
-                  color: "success",
-                  amount: "+55%",
-                  label: "than lask week",
-                }}
-              />
-            </MDBox>
-          </Grid> */}
+      
 
           <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
+            <MDBox mb={1.5} >
               <ComplexStatisticsCard
                 icon="View"
                 title="Vs Code"
                 count=""
                 percentage={{
                   color: "success",
-                  // amount: "+3%",
-                  // label: "month updated",
+                  label: "today updated",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
+          {message && <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{message}</p>}
+
+          <Grid item xs={12} md={6} lg={3} >
+            <MDBox mb={1.5} >
               <ComplexStatisticsCard
                 color="success"
                 icon="Save"
@@ -77,14 +130,15 @@ function Dashboard() {
                 count=""
                 percentage={{
                   color: "success",
-                  // amount: "+1%",
                   label: "yesterday updated",
                 }}
               />
             </MDBox>
           </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <MDBox mb={1.5}>
+          {message && <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{message}</p>}
+
+          <Grid item xs={12} md={6} lg={3} >
+            <MDBox mb={1.5} >
               <ComplexStatisticsCard
                 color="primary"
                 icon="Five"
@@ -98,54 +152,8 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
+          {message && <p className="text-xs  bg-red-100 text-red-700 px-4 py-2 rounded mb-4 mt-4">{message}</p>}
         </Grid>
-
-        {/* <AppSelector /> */}
-
-
-{/* 
-
-        <MDBox mt={4.5}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
-                <ReportsBarChart
-                  color="info"
-                  title="website views"
-                  description="Last Campaign Performance"
-                  date="campaign sent 2 days ago"
-                  chart={reportsBarChartData}
-                />
-              </MDBox>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
-                <ReportsLineChart
-                  color="success"
-                  title="Essential Tools"
-                  description={
-                    <>
-                      (<strong>+15%</strong>) increament.
-                    </>
-                  }
-                  date="updated 4 min ago"
-                  chart={sales}
-                />
-              </MDBox>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
-                <ReportsLineChart
-                  color="dark"
-                  title="downloaded tools"
-                  description="Performance"
-                  date="just updated"
-                  chart={tasks}
-                />
-              </MDBox>
-            </Grid>
-          </Grid>
-        </MDBox> */}
 
 
 

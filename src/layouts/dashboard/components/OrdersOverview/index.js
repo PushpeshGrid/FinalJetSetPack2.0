@@ -99,7 +99,7 @@ function OrdersOverview() {
             </MDTypography>
             &nbsp;
             <MDTypography variant="button" color="text" fontWeight="medium">
-              9
+              6
             </MDTypography>{" "}
             this app month
           </MDTypography>
@@ -112,7 +112,7 @@ function OrdersOverview() {
               <TimelineItem 
                 color="success"
                 icon="inventory_2"
-                title="New app"
+                title="Slack"
                 dateTime="22 DEC 7:20 PM"
               />
 
@@ -174,26 +174,26 @@ function OrdersOverview() {
         <TimelineItem
           color="error"
           icon="inventory_2"
-          title="New app"
+          title="Vs Code"
           dateTime="21 DEC 11 PM"
           
         /></div>
         <TimelineItem
           color="info"
-          icon="inventory_2"
-          title="New app "
+          icon="D"
+          title="Django"
           dateTime="21 DEC 9:34 PM"
         />
         <TimelineItem
           color="warning"
-          icon="payment"
-          title="New app "
+          icon="Github"
+          title="Github"
           dateTime="20 DEC 2:20 AM"
         />
         <TimelineItem
           color="primary"
-          icon="vpn_key"
-          title="New app"
+          icon="P"
+          title="PyCharm"
           dateTime="18 DEC 4:54 AM"
           lastItem
         />

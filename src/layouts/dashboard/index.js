@@ -152,7 +152,7 @@ import { TokenContext } from 'context/TokenContext';
 function Dashboard() {
 
 
-  const {token} = useState(TokenContext);
+  const {token} = useContext(TokenContext);
 
   const { sales, tasks } = reportsLineChartData;
   const [vsCodeMessage, setVsCodeMessage] = useState('');
@@ -162,17 +162,17 @@ function Dashboard() {
 
 
   const handleVsCodeClick = () => {
-
-    axios
+   axios
     .post('http://localhost:8000/set_single_app/VSCode', {
       headers:{
           'Authorization': `Bearer ${token}`
       }
   })
     .then((response) => {
+      console.log({response})
       let data=response.data
       console.log(data);
-        if (response.data.data.VSCode === 'Suscessful') {
+        if (response.data.VSCode === 'Suscessful') {
           setVsCodeMessage('VSCode Installed');
         } else {
           setVsCodeMessage('VSCode Already Exists');

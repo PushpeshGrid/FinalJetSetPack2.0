@@ -20,7 +20,7 @@ function ComplexStatisticsCard({ color, title, count, percentage, icon, onClick 
   const handleClick = () => {
     onClick()
       .then(response => {
-        if (response.data.message === 'Installation Successful') {
+        if (response.data.data === 'Successful') {
           setMessage('Downloaded');
         } else {
           setMessage('');

@@ -159,29 +159,58 @@ function Dashboard() {
   const [slackMessage, setSlackMessage] = useState('');
   const [firefoxMessage, setFirefoxMessage] = useState('');
 
-  const handleVsCodeClick = () => {
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'http://localhost:8000/set_single_app/VSCode',
-      headers: {
-        'Authorization': token
-      }
-    };
-    axios.request(config)
-    .then((response) => {
-      console.log((response.data));
 
-           if (response.data.data.VSCode === 'Suscessful') {
+
+  const handleVsCodeClick = () => {
+
+    axios
+    .post('http://localhost:8000/set_single_app/VSCode', {
+      headers:{
+          'Authorization': `Bearer ${token}`
+      }
+  })
+    .then((response) => {
+      let data=response.data
+      console.log(data);
+        if (response.data.data.VSCode === 'Suscessful') {
           setVsCodeMessage('VSCode Installed');
         } else {
           setVsCodeMessage('VSCode Already Exists');
         }
+      
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
+      
     });
+
+
+
+    // let config = {
+    //   method: 'post',
+    //   maxBodyLength: Infinity,
+    //   url: 'http://localhost:8000/set_single_app/VSCode',
+    //   headers: {
+    //     'Authorization': token
+    //   }
+    // };
+    // axios.request(config)
+    // .then((response) => {
+    //   console.log((response.data));
+
+    //        if (response.data.data.VSCode === 'Suscessful') {
+    //       setVsCodeMessage('VSCode Installed');
+    //     } else {
+    //       setVsCodeMessage('VSCode Already Exists');
+    //     }
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
   };
+
+
+
 
 
   const handleSlackClick = () => {

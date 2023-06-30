@@ -163,7 +163,7 @@ function Dashboard() {
 
   const handleVsCodeClick = async() => {
    await axios
-    .post('http://localhost:8000/set_single_app/VSCode', {
+    .post('http://localhost:8000/set_single_app/VSCode',null, {
       headers:{
           Authorization: `Bearer ${token}`
       }

@@ -150,12 +150,12 @@ axios.request(config)
 
 //
   
-})
-.catch((error) => {
-  console.error(error);
-  setProfileName('plodiwal');
-  setEmailAddress('plodiwal@gmail.com');
-});
+// })
+// .catch((error) => {
+//   console.error(error);
+//   setProfileName('plodiwal');
+//   setEmailAddress('plodiwal@gmail.com');
+// });
 
 
 //

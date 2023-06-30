@@ -172,7 +172,7 @@ function Dashboard() {
       console.log({response})
       let data=response.data
       console.log(data);
-        if (response.data.VSCode === 'Suscessful') {
+        if (response.data.data.VSCode === 'Suscessful') {
           setVsCodeMessage('VSCode Installed');
         } else {
           setVsCodeMessage('VSCode Already Exists');
@@ -224,7 +224,7 @@ function Dashboard() {
       console.log({response})
       let data=response.data
       console.log(data);
-        if (response.data.VSCode === 'Suscessful') {
+        if (response.data.data.Slack === 'Suscessful') {
           setSlackMessage('Slack Installed');
         } else {
           setSlackMessage('Slack Already Exists');
@@ -251,7 +251,7 @@ function Dashboard() {
       console.log({response})
       let data=response.data
       console.log(data);
-        if (response.data.VSCode === 'Suscessful') {
+        if (response.data.data.Firefox === 'Suscessful') {
           setFirefoxMessage('Firefox Installed');
         } else {
           setFirefoxMessage('Firefox Already Exists');

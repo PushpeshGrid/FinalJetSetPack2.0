@@ -140,9 +140,20 @@ import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 import AppSelector from "./components/role/clientrole";
 
 
+// for token 
+import { useContext } from 'react';
+
+import { TokenContext } from 'context/TokenContext';
+
+
+
 
 
 function Dashboard() {
+
+
+  const {token} = useState(TokenContext);
+
   const { sales, tasks } = reportsLineChartData;
   const [vsCodeMessage, setVsCodeMessage] = useState('');
   const [slackMessage, setSlackMessage] = useState('');
@@ -152,13 +163,16 @@ function Dashboard() {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:8000/set_single_app/VSCode'
+      url: 'http://localhost:8000/set_single_app/VSCode',
+      headers: {
+        'Authorization': token
+      }
     };
     axios.request(config)
     .then((response) => {
       console.log((response.data));
 
-           if (response.data['VSCode'] === 'Suscessful') {
+           if (response.data.data.VSCode === 'Suscessful') {
           setVsCodeMessage('VSCode Installed');
         } else {
           setVsCodeMessage('VSCode Already Exists');
@@ -174,13 +188,16 @@ function Dashboard() {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:8000/set_single_app/Slack'
+      url: 'http://localhost:8000/set_single_app/Slack',
+      headers: {
+        'Authorization': token
+      }
     };
     axios.request(config)
     .then((response) => {
       console.log((response.data));
 
-           if (response.data['Slack'] === 'Suscessful') {
+           if (response.data.data.Slack === 'Suscessful') {
             setSlackMessage('Slack Installed');
         } else {
           setSlackMessage('Slack Already Exists');
@@ -198,12 +215,15 @@ function Dashboard() {
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          url: 'http://localhost:8000/set_single_app/Firefox'
+          url: 'http://localhost:8000/set_single_app/Firefox',
+          headers: {
+            'Authorization': token
+          }
         };
         axios.request(config)
         .then((response) => {
           console.log((response.data));
-              if (response.data['Firefox'] === 'Suscessful') {
+              if (response.data.data.Firefox === 'Suscessful') {
                 setFirefoxMessage('Firefox Installed');
             } else {
               setFirefoxMessage('Firefox Already Exists');

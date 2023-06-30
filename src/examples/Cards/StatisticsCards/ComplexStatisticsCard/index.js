@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
@@ -12,13 +12,32 @@ import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 
-function ComplexStatisticsCard({ color, title, count, percentage, icon }) {
+function ComplexStatisticsCard({ color, title, count, percentage, icon, onClick }) {
+  const [message, setMessage] = useState('');
 
-  const handleCard = ()=>{
-    console.log('clicked')
-  }
+
+
+  const handleClick = () => {
+    onClick()
+      .then(response => {
+        if (response.data.message === 'Installation Successful') {
+          setMessage('Downloaded');
+        } else {
+          setMessage('');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        setMessage('');
+      });
+  };
+
+
+
+
+  
   return (
-    <Card onClick={handleCard}>
+    <Card onClick={handleClick}>
       <MDBox display="flex" justifyContent="space-between" pt={1} px={2}>
         <MDBox
           variant="gradient"
@@ -58,6 +77,7 @@ function ComplexStatisticsCard({ color, title, count, percentage, icon }) {
           &nbsp;{percentage.label}
         </MDTypography>
       </MDBox>
+      {message && <p>{message}</p>}
     </Card>
   );
 }

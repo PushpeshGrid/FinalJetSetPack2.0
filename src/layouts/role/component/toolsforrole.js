@@ -1605,7 +1605,28 @@ export default function FloatingActionButtonZoom() {
               />
               <span>{selectedApp.name}</span>
             </div>
-            <div>njbjhwbfjkwbKJFBkjwfbnknfkwnfk</div>
+
+
+
+
+            {selectedApp.name === 'VsCode'?'Visual Studio Code (VS Code) is a lightweight and fast source code editor developed by Microsoft. It offers cross-platform compatibility and a highly customizable interface, allowing developers to personalize their coding environment. '
+            :selectedApp.name === 'GitHub'?'GitHub is a web-based platform that serves as a hosting service for version control repositories. It allows developers to collaborate on projects, track changes to code, and manage software development workflows. '
+            :selectedApp.name === 'Homebrew'?"Homebrew is a package manager for macOS, designed to simplify the installation and management of software packages on Apple's operating system. It provides a command-line interface that allows users to easily install, update, and uninstall various software packages, libraries, and utilities."
+            :selectedApp.name === 'Sublime Text'?'Sublime Text is a fast, minimalist text editor with a powerful feature set. It supports multiple platforms and provides a clean interface for distraction-free coding. It offers extensive text editing capabilities, including multiple selections and powerful search and replace functionality. '
+            :selectedApp.name === 'Firefox'?'Firefox is a versatile web browser that emphasizes speed, security, and user privacy. Its customizable nature, extensive feature set, and commitment to open-source principles have made it a popular choice among internet users.'
+            :selectedApp.name === 'Zoom'?'Zoom is a widely used video conferencing platform that allows people to communicate and collaborate remotely. It supports high-quality video meetings with screen sharing, chat, and file sharing capabilities. Users can schedule and record meetings, integrate with calendars, and use virtual backgrounds. Zoom prioritizes security and privacy, and it is compatible with various devices and offers third-party integrations.'
+            :selectedApp.name === 'Slack'?'Slack is a communication and collaboration platform designed for teams and organizations. It provides a digital workspace where users can communicate, share files, and collaborate on projects.'
+            :selectedApp.name === 'Django'?'Django is a high-level Python web framework that promotes rapid development of web applications. It follows the MVC architectural pattern and provides an ORM for simplified database interactions. With a flexible URL routing system and built-in templating engine, developers can easily handle requests and generate dynamic content. Django includes authentication, authorization, and an admin interface for managing application data. It offers scalability, performance optimization, and has a vibrant ecosystem of third-party libraries. Django has a supportive community and comprehensive documentation. Overall, Django is a powerful framework for building robust web applications efficiently.'
+            :selectedApp.name === 'Python'?"Python's versatility, simplicity, and extensive ecosystem of libraries and frameworks have made it a popular choice among developers for a wide range of applications, from small scripts to large-scale projects."
+            :selectedApp.name === 'Homebrew Cask'?'Homebrew Cask is an extension to the Homebrew package manager for macOS, designed to simplify the installation and management of graphical applications and larger binary files. '
+            :selectedApp.name === 'PyCharm'?'PyCharm is widely used by Python developers for its comprehensive set of features, intelligent code assistance, and seamless integration with Python frameworks and libraries. It offers an efficient and productive environment for Python development projects of any size or complexity.'
+            :selectedApp.name === 'Chrome'?"Chrome's combination of speed, security, and extensive features has made it one of the most widely used web browsers globally, offering a user-friendly and versatile browsing experience.":''
+            
+            }
+
+            
+
+            
             <button
               className="bg-red-500 text-white px-4 py-2 mt-4"
               onClick={handleCloseContainer}

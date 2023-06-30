@@ -1442,6 +1442,14 @@ export default function FloatingActionButtonZoom() {
     { name: 'VsCode', image: VisualCode },
     { name: 'GitHub', image: Github },
     { name: 'Homebrew', image: Homebrew },
+    { name: 'Homebrew Cask', image: Cask },
+    { name: 'Sublime Text', image: Sublime },
+    { name: 'Slack', image: Slack },
+    { name: 'Chrome', image: Chrome },
+    { name: 'GitHub', image: Github }
+    
+
+
   ];
   const backendApps = [
     { name: 'VsCode', image: VisualCode },
@@ -1462,6 +1470,12 @@ export default function FloatingActionButtonZoom() {
     { name: 'GitHub', image: Github },
     { name: 'Homebrew', image: Homebrew },
     { name: 'Python', image: Python },
+    { name: 'Homebrew Cask', image: Cask },
+    { name: 'Sublime Text', image: Sublime },
+    { name: 'Slack', image: Slack },
+    { name: 'Firefox', image: Firefox }
+
+
   ];
 
   let appsToShow = [];
@@ -1624,7 +1638,7 @@ export default function FloatingActionButtonZoom() {
             
             }
 
-            
+
 
             
             <button

@@ -293,7 +293,7 @@ function Configurator() {
 
 
 
-        <MDBox display="flex" justifyContent="center">
+        {/* <MDBox display="flex" justifyContent="center">
           <GitHubButton
             href="#"
             data-icon="octicon-star"
@@ -303,8 +303,8 @@ function Configurator() {
           >
             Star
           </GitHubButton>
-        </MDBox>
-        <MDBox mt={2} textAlign="center">
+        </MDBox> */}
+        {/* <MDBox mt={2} textAlign="center">
           <MDBox mb={0.5}>
             <MDTypography variant="h6">Thank you for sharing!</MDTypography>
           </MDBox>
@@ -333,7 +333,7 @@ function Configurator() {
               &nbsp; Share
             </MDButton>
           </MDBox>
-        </MDBox>
+        </MDBox> */}
       </MDBox>
     </ConfiguratorRoot>
   );

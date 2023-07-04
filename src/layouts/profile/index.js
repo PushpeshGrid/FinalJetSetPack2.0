@@ -46,11 +46,9 @@ function Overview() {
         <MDBox mt={5} mb={3}>
           <Grid container spacing={1}>
             <Grid item xs={12} md={6} xl={4}>
-              <PlatformSettings />
-            </Grid>
-            <Grid item xs={12} md={6} xl={4} sx={{ display: "flex" }}>
-              <Divider orientation="vertical" sx={{ ml: -2, mr: 1 }} />
-              <ProfileInfoCard
+
+
+            <ProfileInfoCard
                 title="User Profile"
                 description="Hi, I'm Pushpesh, Front-end developer in grid dynamics, Main specialization is in UI development.  Using web technologies like HTML, CSS, DOM, JavaScript ,React  designs the  Front-end user interface "
                 info={{
@@ -79,11 +77,44 @@ function Overview() {
                 action={{ route: "", tooltip: "Edit Profile" }}
                 shadow={false}
               />
-              <Divider orientation="vertical" sx={{ mx: 0 }} />
+              {/* <PlatformSettings /> */}
             </Grid>
-            <Grid item xs={12} xl={4}>
+            <Grid item xs={12} md={6} xl={4} sx={{ display: "flex" }}>
+              {/* <Divider orientation="vertical" sx={{ ml: -2, mr: 1 }} /> */}
+              {/* <ProfileInfoCard
+                title="User Profile"
+                description="Hi, I'm Pushpesh, Front-end developer in grid dynamics, Main specialization is in UI development.  Using web technologies like HTML, CSS, DOM, JavaScript ,React  designs the  Front-end user interface "
+                info={{
+                  fullName: "Pushpesh Lodiwal",
+                  mobile: "+919352274749",
+                  email: "plodiwal@griddynamics.com",
+                  location: "Telengna",
+                }}
+                social={[
+                  {
+                    link: "https://www.facebook.com/Pushpeshlodiwal/",
+                    icon: <FacebookIcon />,
+                    color: "facebook",
+                  },
+                  {
+                    link: "https://twitter.com/",
+                    icon: <TwitterIcon />,
+                    color: "twitter",
+                  },
+                  {
+                    link: "https://www.instagram.com/pushpesh_1711/",
+                    icon: <InstagramIcon />,
+                    color: "instagram",
+                  },
+                ]}
+                action={{ route: "", tooltip: "Edit Profile" }}
+                shadow={false}
+              /> */}
+              {/* <Divider orientation="vertical" sx={{ mx: 0 }} /> */}
+            </Grid>
+            {/* <Grid item xs={12} xl={4}>
               <ProfilesList title="conversations" profiles={profilesListData} shadow={false} />
-            </Grid>
+            </Grid> */}
           </Grid>
         </MDBox>
 

@@ -43,43 +43,9 @@ import { myAxios } from "helper/helper";
 import axios from "axios";
 
 
-import Aftersign from '../components/Aftersign/index'
-
-
-// signupandcontinuepage
-
-
-// import * as React from 'react';
-// import Button from '@mui/material/Button';
-// import TextField from '@mui/material/TextField';
-// import Dialog from '@mui/material/Dialog';
-// import DialogActions from '@mui/material/DialogActions';
-// import DialogContent from '@mui/material/DialogContent';
-// import DialogContentText from '@mui/material/DialogContentText';
-// import DialogTitle from '@mui/material/DialogTitle';
-
-import NextAftersign from '../components/Aftersign/index'
-
-
-
-
-
-
 // fortokenoverallproject
 import { useContext } from 'react';
 import { TokenContext } from '../../../context/TokenContext';
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -91,25 +57,6 @@ function Basic() {
    // tokenhandling
    const { setNewToken,token } = useContext(TokenContext);
 
-
-
-  
-
-
-
-  // signupcontinuepage
-
-  // const [open, setOpen] = React.useState(false);
-
-
-
-  // const handleCancle = () => {
-  //   setOpen(false);
-  // };
-  // const handleContinue = () =>{
-  //   navigate("/Dashboard/")
-  //   console.log('hi')
-  // }
 
 
 
@@ -128,13 +75,7 @@ const loginHandle= (e)=>{
   // navigate("/authentication/welcome");
  
   // setOpen(true);
-
-
   e.preventDefault();
-
-
-
-
   sessionStorage.setItem('username', username )
 
   const userData = {
@@ -173,8 +114,6 @@ axios
 if(!token){
   setErrorMessage('Please enter the correct username or password.');
 }
-
-
 }
 
 

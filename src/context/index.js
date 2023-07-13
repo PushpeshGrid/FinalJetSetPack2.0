@@ -1,9 +1,10 @@
 import { createContext, useContext, useReducer, useMemo } from "react";
 import PropTypes from "prop-types";
-const MaterialUI = createContext();
-MaterialUI.displayName = "MaterialUIContext";
 
-// Material Dashboard 2 React reducer
+const MaterialUI = createContext();
+MaterialUI.displayName = "JetSetpack";
+
+// React reducer
 function reducer(state, action) {
   switch (action.type) {
     case "MINI_SIDENAV": {
@@ -42,7 +43,7 @@ function reducer(state, action) {
   }
 }
 
-// Material Dashboard 2 React context provider
+// React context provider
 function MaterialUIControllerProvider({ children }) {
   const initialState = {
     miniSidenav: false,
@@ -64,7 +65,7 @@ function MaterialUIControllerProvider({ children }) {
   return <MaterialUI.Provider value={value}>{children}</MaterialUI.Provider>;
 }
 
-// Material Dashboard 2 React custom hook for using context
+// React custom hook for using context
 function useMaterialUIController() {
   const context = useContext(MaterialUI);
 

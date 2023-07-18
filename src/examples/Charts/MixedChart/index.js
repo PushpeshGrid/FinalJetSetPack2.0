@@ -1,10 +1,7 @@
-
-
 import { useRef, useEffect, useState, useMemo } from "react";
 
 // porp-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
 // react-chartjs-2 components
 import { Line } from "react-chartjs-2";
 import {

@@ -153,40 +153,41 @@ export default function App() {
     </MDBox>
   );
 
-  return direction === "rtl" ? (
+  return (
+  // direction === "rtl" ? (
     // <CacheProvider value={rtlCache}>
-    <TokenProvider>
-      <ThemeProvider theme={darkMode ? themeDarkRTL : themeRTL}>
-        <CssBaseline />
-        {layout === "dashboard" && (
-          <>
-            <Sidenav
-              color={sidenavColor}
-              brand={
-                (transparentSidenav && !darkMode) || whiteSidenav
-                  ? brandDark
-                  : brandWhite
-              }
-              brandName="JetSetpack"
-              routes={routes}
-              onMouseEnter={handleOnMouseEnter}
-              onMouseLeave={handleOnMouseLeave}
-            />
-            <Configurator />
-            {configsButton}
-          </>
-        )}
-        {layout === "vr" && <Configurator />}
-        <Routes>
-          {getRoutes(routes)}
+  //   <TokenProvider>
+  //     <ThemeProvider theme={darkMode ? themeDarkRTL : themeRTL}>
+  //       <CssBaseline />
+  //       {layout === "dashboard" && (
+  //         <>
+  //           <Sidenav
+  //             color={sidenavColor}
+  //             brand={
+  //               (transparentSidenav && !darkMode) || whiteSidenav
+  //                 ? brandDark
+  //                 : brandWhite
+  //             }
+  //             brandName="JetSetpack"
+  //             routes={routes}
+  //             onMouseEnter={handleOnMouseEnter}
+  //             onMouseLeave={handleOnMouseLeave}
+  //           />
+  //           <Configurator />
+  //           {configsButton}
+  //         </>
+  //       )}
+  //       {layout === "vr" && <Configurator />}
+  //       <Routes>
+  //         {getRoutes(routes)}
 
-          <Route exact path="/" component={signin} />
+  //         <Route exact path="/" component={signin} />
 
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </ThemeProvider>
-    </TokenProvider>
-  ) : (
+  //         <Route path="*" element={<Navigate to="/dashboard" />} />
+  //       </Routes>
+  //     </ThemeProvider>
+  //   </TokenProvider>
+  // ) : (
     // </CacheProvider>
     <TokenProvider>
       <ThemeProvider theme={darkMode ? themeDark : theme}>

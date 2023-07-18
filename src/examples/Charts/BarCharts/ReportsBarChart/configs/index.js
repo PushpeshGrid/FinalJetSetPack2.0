@@ -1,5 +1,4 @@
 
-
 function configs(labels, datasets) {
   return {
     data: {

@@ -1,6 +1,4 @@
-
-
-// prop-types is a library for typechecking of props
+//  typechecking of props
 import PropTypes from "prop-types";
 
 // react-router-dom components
